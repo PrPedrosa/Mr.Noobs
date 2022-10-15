@@ -2,8 +2,7 @@
 
 class Enemy {
     constructor(w, h, ctx){
-        this.x = this.randPosX();
-        this.y = this.randPosY();
+        this.position = this.randPos();
         this.w = w;
         this.h = h;
         this.ctx = ctx;
@@ -20,7 +19,7 @@ class Enemy {
     //3 different enemies (bonus)
 
     draw(){
-        ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
+        ctx.drawImage(this.img, this.position[0], this.position[1], this.w, this.h);
 
     }
 
@@ -35,13 +34,23 @@ class Enemy {
         return randomPosition;
     }
 
-    identify(){
-        if(this.y === -40) return 1;
-        else return 2
+    
+    randPos(){
+        let randFirstPos = Math.floor(Math.random()*4);
+        let randSecondPos = Math.floor(Math.random()*6);
+        let secondPos = [55, 105, 155, 205, 255, 305];
+        
+        if(randFirstPos === 0) return [-45, secondPos[randSecondPos]];
+        else if (randFirstPos === 1) return [405, secondPos[randSecondPos]]; 
+        else if (randFirstPos === 2) return [secondPos[randSecondPos], -45]; 
+        else if (randFirstPos === 3) return [secondPos[randSecondPos], 405]; 
     }
-
-
-
-
+    
+    identify(){
+        if(this.position[1] === -45) return "startsTop";
+        else if(this.position[1] === 405) return "startsBottom";
+        else if(this.position[0] === -45) return "startsLeft";
+        else if(this.position[0] === 405) return "startsRight";
+    }
 
 }
