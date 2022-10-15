@@ -11,13 +11,13 @@ class Player {
 
         this.img = new Image();
         this.img.addEventListener("load", () =>{
-            this.drawPlayer()
+            this.draw()
         })
         this.img.src = "docs/assets/images/noob.png";
         
     }
     
-    drawPlayer(){
+    draw(){
         
         ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
     }

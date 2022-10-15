@@ -52,8 +52,8 @@ let drawBoard = () => {
 
 
 let noob = new Player(200, 200, 40, 40, this.ctx);
-let boss = new Enemy(350, 200, 40, 40, this.ctx);
-let game = new Game(noob, boss);
+//let boss = new Enemy(350, 200, 40, 40, this.ctx);
+let game = new Game(noob);
 
 document.addEventListener('keydown', (e) => {
     switch (e.code) {
