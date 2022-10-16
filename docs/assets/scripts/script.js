@@ -22,11 +22,11 @@ let drawBoard = () => {
     for(let i = 0; i <= matrix.length-1; i +=1){
         for(let j = 0; j <= matrix.length-1; j +=1){
             if(matrix[i][j] === 1){
-                ctx.fillStyle = "grey";
+                ctx.fillStyle = "AntiqueWhite";
                 ctx.fillRect(i*50, j*50, 50, 50)
             }
             if(matrix[i][j] === 0){
-                ctx.fillStyle = "AntiqueWhite";
+                ctx.fillStyle = "grey";
                 ctx.fillRect(i*50, j*50, 50, 50)
             } 
         }

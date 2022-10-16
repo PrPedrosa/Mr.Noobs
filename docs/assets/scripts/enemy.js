@@ -7,9 +7,12 @@ class Enemy {
         this.h = h;
         this.ctx = ctx;
         this.identifier = this.identify();
-        this.imgSrc = ["docs/assets/images/pulse1.png", "docs/assets/images/pulse2.png", "docs/assets/images/pulse3.png", "docs/assets/images/pulse4.png"]
+        this.enemyImg = new Image();
+        this.enemyImgSrcRight = ["docs/assets/images/Pulse/PulseR/pulse1.png", "docs/assets/images/Pulse/PulseR/pulse2.png", "docs/assets/images/Pulse/PulseR/pulse3.png", "docs/assets/images/Pulse/PulseR/pulse4.png"]
+        this.enemyImgSrcLeft = ["docs/assets/images/Pulse/PulseL/pulse1Left.png", "docs/assets/images/Pulse/PulseL/pulse2Left.png", "docs/assets/images/Pulse/PulseL/pulse3Left.png", "docs/assets/images/Pulse/PulseL/pulse4Left.png"]
+        this.enemyImgSrcUp = ["docs/assets/images/Pulse/PulseU/pulse1Up.png", "docs/assets/images/Pulse/PulseU/pulse2Up.png", "docs/assets/images/Pulse/PulseU/pulse3Up.png", "docs/assets/images/Pulse/PulseU/pulse4Up.png"]
+        this.enemyImgSrcDown = ["docs/assets/images/Pulse/PulseD/pulse1Down.png", "docs/assets/images/Pulse/PulseD/pulse2Down.png", "docs/assets/images/Pulse/PulseD/pulse3Down.png", "docs/assets/images/Pulse/PulseD/pulse4Down.png"] 
         this.frames = 0;
-        this.img = new Image();
         this.warningImg = new Image();
         this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"]
         /* this.img.addEventListener("load", () =>{
@@ -22,7 +25,6 @@ class Enemy {
     
     draw(){
         //get enemy animation
-        this.img.src = this.imgSrc[Math.floor(this.frames % 3)];
         this.frames += 0.15
         //get warning sign
         if(this.identifier === "startsLeft" && this.position[0] < 0) {
@@ -42,7 +44,22 @@ class Enemy {
             ctx.drawImage(this.warningImg, this.position[0], 350, 40, 40)
         }
         //draw enemy
-        ctx.drawImage(this.img, this.position[0], this.position[1], this.w, this.h);
+        if(this.identifier === "startsLeft"){
+            this.enemyImg.src = this.enemyImgSrcRight[Math.floor(this.frames % 3)];
+            ctx.drawImage(this.enemyImg, this.position[0], this.position[1], this.w, this.h);
+        }
+        if(this.identifier === "startsRight"){
+            this.enemyImg.src = this.enemyImgSrcLeft[Math.floor(this.frames % 3)];
+            ctx.drawImage(this.enemyImg, this.position[0], this.position[1], this.w, this.h);
+        }
+        if(this.identifier === "startsTop"){
+            this.enemyImg.src = this.enemyImgSrcDown[Math.floor(this.frames % 3)];
+            ctx.drawImage(this.enemyImg, this.position[0], this.position[1], this.w, this.h);
+        }
+        if(this.identifier === "startsBottom"){
+            this.enemyImg.src = this.enemyImgSrcUp[Math.floor(this.frames % 3)];
+            ctx.drawImage(this.enemyImg, this.position[0], this.position[1], this.w, this.h);
+        }
 
     }
     

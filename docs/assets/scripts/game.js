@@ -16,7 +16,7 @@ class Game {
     createEnemies(){
        
         for(let m = 0; m < this.difficulty; m++){
-            this.enemies.push(new Enemy(40, 40, this.ctx))
+            this.enemies.push(new Enemy(35, 35, this.ctx))
         }   
         if (this.waves % 10 === 0) this.difficulty++;
         }
@@ -31,22 +31,22 @@ class Game {
 
         for(let i = 0; i < this.enemies.length; i++){
             if(this.enemies[i].identifier === "startsTop"){
-                this.enemies[i].position[1] ++;
+                this.enemies[i].position[1] += 1.5;
                 this.enemies[i].draw();
                 if(this.enemies[i].position[1] > 400) this.enemies.splice(i, 1);
             }
             if(this.enemies[i].identifier === "startsBottom"){
-                this.enemies[i].position[1] --;
+                this.enemies[i].position[1] -= 1.5;
                 this.enemies[i].draw();
                 if(this.enemies[i].position[1] < 0) this.enemies.splice(i, 1);
             }
             if(this.enemies[i].identifier === "startsLeft"){
-                this.enemies[i].position[0] ++;
+                this.enemies[i].position[0] += 1.5;
                 this.enemies[i].draw();
                 if(this.enemies[i].position[0] > 400) this.enemies.splice(i, 1);
             }
             if(this.enemies[i].identifier === "startsRight"){
-                this.enemies[i].position[0] --;
+                this.enemies[i].position[0] -= 1.5;
                 this.enemies[i].draw();
                 if(this.enemies[i].position[0] < 0) this.enemies.splice(i, 1);
             }
