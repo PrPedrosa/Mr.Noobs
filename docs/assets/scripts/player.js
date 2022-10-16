@@ -34,4 +34,32 @@ class Player {
     moveRight(){
         this.x += 50;
     }
+
+    topPos(){
+        return this.y;
+    }
+    bottomPos(){
+        return this.y + this.h;
+    }
+    leftPos(){
+        return this.x;
+    }
+    rightPos(){
+        return this.x + this.w;
+    }
+
+    isTouching(enemy) {
+        return (
+          enemy.leftPos() < this.rightPos() &&
+          enemy.rightPos() > this.leftPos() &&
+          enemy.topPos() < this.bottomPos() &&
+          enemy.bottomPos() > this.topPos()
+        );
+      }
 }
+
+
+/* rect1.x < rect2.x + rect2.w &&
+    rect1.x + rect1.w > rect2.x &&
+    rect1.y < rect2.y + rect2.h &&
+    rect1.h + rect1.y > rect2.y */

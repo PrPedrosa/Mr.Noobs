@@ -2,9 +2,9 @@ class Game {
     constructor(player){
         this.animationFrameId;
         this.player = player;
-        
+        this.gameOver = false;
         this.frames = 0;
-        this.enemiesTop = [];
+        this.enemies = [];
         this.waves = 1;
 
 
@@ -13,7 +13,7 @@ class Game {
     createEnemies(){
        
         for(let i = 0; i < 3; i++){
-            this.enemiesTop.push(new Enemy(40, 40, this.ctx))
+            this.enemies.push(new Enemy(40, 40, this.ctx))
             }   
         }
         
@@ -24,40 +24,50 @@ class Game {
             this.waves ++
         }
 
-        for(let i = 0; i < this.enemiesTop.length; i++){
-            if(this.enemiesTop[i].identifier === "startsTop"){
-                this.enemiesTop[i].position[1] ++;
-                this.enemiesTop[i].draw();
-                if(this.enemiesTop[i].position[1] > 400) this.enemiesTop.splice(i, 1);
+        for(let i = 0; i < this.enemies.length; i++){
+            if(this.enemies[i].identifier === "startsTop"){
+                this.enemies[i].position[1] ++;
+                this.enemies[i].draw();
+                if(this.enemies[i].position[1] > 400) this.enemies.splice(i, 1);
             }
-            if(this.enemiesTop[i].identifier === "startsBottom"){
-                this.enemiesTop[i].position[1] --;
-                this.enemiesTop[i].draw();
-                if(this.enemiesTop[i].position[1] < 0) this.enemiesTop.splice(i, 1);
+            if(this.enemies[i].identifier === "startsBottom"){
+                this.enemies[i].position[1] --;
+                this.enemies[i].draw();
+                if(this.enemies[i].position[1] < 0) this.enemies.splice(i, 1);
             }
-            if(this.enemiesTop[i].identifier === "startsLeft"){
-                this.enemiesTop[i].position[0] ++;
-                this.enemiesTop[i].draw();
-                if(this.enemiesTop[i].position[0] > 400) this.enemiesTop.splice(i, 1);
+            if(this.enemies[i].identifier === "startsLeft"){
+                this.enemies[i].position[0] ++;
+                this.enemies[i].draw();
+                if(this.enemies[i].position[0] > 400) this.enemies.splice(i, 1);
             }
-            if(this.enemiesTop[i].identifier === "startsRight"){
-                this.enemiesTop[i].position[0] --;
-                this.enemiesTop[i].draw();
-                if(this.enemiesTop[i].position[0] < 0) this.enemiesTop.splice(i, 1);
+            if(this.enemies[i].identifier === "startsRight"){
+                this.enemies[i].position[0] --;
+                this.enemies[i].draw();
+                if(this.enemies[i].position[0] < 0) this.enemies.splice(i, 1);
             }
             
         }
     }
 
+    lost(){
+        let touched = this.enemies.some(enemy => {
+            return this.player.isTouching(enemy);
+        });
+        if(touched) this.gameOver = true;
+        console.log(this.gameOver);
+    }
+
+
+
+
 
     update = () => {
         this.frames++;
         drawBoard();  
-        console.log(this.enemiesTop);
         this.player.draw();
         this.sendWaves();
-        this.animationFrameId = requestAnimationFrame(this.update);     
-        this.endGame();
+        this.lost();
+        if(!this.gameOver) requestAnimationFrame(this.update);     
     } 
 
     startGame = () => {
@@ -66,7 +76,8 @@ class Game {
         this.update();
     }
     
-    endGame = () => {
-        if(this.player.y > 500) cancelAnimationFrame(this.animationFrameId)    
+    stop = () => {
+        console.log("here");
+        cancelAnimationFrame(this.animationFrameId)    
     }
 }

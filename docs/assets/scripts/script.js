@@ -51,33 +51,32 @@ let drawBoard = () => {
 }
 
 
-let noob = new Player(205, 205, 40, 40, this.ctx);
-//let boss = new Enemy(350, 200, 40, 40, this.ctx);
-let game = new Game(noob);
 
 document.addEventListener('keydown', (e) => {
     switch (e.code) {
         case 'ArrowUp':
             if(noob.y > 55) noob.moveUp();
-         break;
+            break;
         case 'ArrowDown':
             if(noob.y < 305) noob.moveDown();
-         break;
+            break;
         case 'ArrowLeft':
             if(noob.x > 55) noob.moveLeft();
-         break;
+            break;
         case 'ArrowRight':
             if(noob.x < 305) noob.moveRight();
-         break;
-    }
-})
-
-
-
-
+            break;
+        }
+    })
+                
+                
+                
+    let noob = new Player(205, 205, 40, 40, this.ctx);
+    let game = new Game(noob);          
+                
 let button = document.getElementById("start");
-button.addEventListener("click", () =>{
-  
+
+button.addEventListener("click", () => {
     game.startGame();
 })
 

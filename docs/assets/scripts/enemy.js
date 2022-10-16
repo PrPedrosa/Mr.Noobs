@@ -12,7 +12,7 @@ class Enemy {
         this.img.addEventListener("load", () =>{
             this.draw()
         })
-        this.img.src = "docs/assets/images/Boss_vermelho.png";
+        this.img.src = "docs/assets/images/pulse1.png";
     }
     //increase speed every 10waves
     //increase number of enemies every 20waves
@@ -51,6 +51,19 @@ class Enemy {
         else if(this.position[1] === 405) return "startsBottom";
         else if(this.position[0] === -45) return "startsLeft";
         else if(this.position[0] === 405) return "startsRight";
+    }
+
+    topPos(){
+        return this.position[1];
+    }
+    bottomPos(){
+        return this.position[1] + this.h;
+    }
+    leftPos(){
+        return this.position[0];
+    }
+    rightPos(){
+        return this.position[0] + this.w;
     }
 
 }
