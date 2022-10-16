@@ -6,7 +6,7 @@ class Game {
         this.frames = 0;
         this.enemies = [];
         this.waves = 1;
-        this.j = 1
+        this.difficulty = 1
         this.score = document.getElementById("score");
         
 
@@ -15,10 +15,10 @@ class Game {
 
     createEnemies(){
        
-        for(let m = 0; m < this.j; m++){
+        for(let m = 0; m < this.difficulty; m++){
             this.enemies.push(new Enemy(40, 40, this.ctx))
         }   
-        if (this.waves % 10 === 0) this.j++;
+        if (this.waves % 10 === 0) this.difficulty++;
         }
         
         

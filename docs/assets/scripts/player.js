@@ -10,10 +10,10 @@ class Player {
         this.ctx = ctx;
 
         this.img = new Image();
+        this.img.src = "docs/assets/images/char-r.png";
         this.img.addEventListener("load", () =>{
             this.draw()
         })
-        this.img.src = "docs/assets/images/char-r.png";
         
     }
     
