@@ -26,6 +26,7 @@ class Enemy {
     draw(){
         //get enemy animation
         this.frames += 0.15
+        
         //get warning sign
         if(this.identifier === "startsLeft" && this.position[0] < 0) {
             this.warningImg.src = this.warningImgSrc[0];
@@ -43,6 +44,7 @@ class Enemy {
             this.warningImg.src = this.warningImgSrc[2];
             ctx.drawImage(this.warningImg, this.position[0], 350, 40, 40)
         }
+
         //draw enemy
         if(this.identifier === "startsLeft"){
             this.enemyImg.src = this.enemyImgSrcRight[Math.floor(this.frames % 3)];

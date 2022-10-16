@@ -8,18 +8,20 @@ class Player {
         this.w = w;
         this.h = h;
         this.ctx = ctx;
+        this.frames = 0
 
-        this.img = new Image();
-        this.img.src = "docs/assets/images/noob.png";
-        this.img.addEventListener("load", () =>{
+        this.playerImg = new Image();
+        this.playerImgSrc = ["docs/assets/images/stickman1.png", "docs/assets/images/stickman2.png"]
+        /* this.playerImg.addEventListener("load", () =>{
             this.draw()
-        })
+        }) */
         
     }
     
     draw(){
-        
-        ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
+        this.frames += 0.15;
+        this.playerImg.src = this.playerImgSrc[Math.floor(this.frames % 2)];
+        ctx.drawImage(this.playerImg, this.x, this.y, this.w, this.h);
     }
 
     moveUp(){

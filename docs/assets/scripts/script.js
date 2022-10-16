@@ -33,7 +33,7 @@ let drawBoard = () => {
     }
     
     for(let i = 0; i <= matrix.length-1; i += 1){
-        ctx.lineWidth = 2
+        ctx.lineWidth = 1
         ctx.strokeStyle = "black";
         ctx.beginPath();
         ctx.moveTo(0, 50*i);
@@ -56,12 +56,15 @@ let drawBoard = () => {
 
 
 
-let button = document.getElementById("start");
-button.innerHTML = "START"
+let button = document.getElementById("start-btn");
+let menuScreen = document.getElementById("menu-screen")
 
 button.addEventListener("click", () => {
     let noob = new Player(205, 205, 40, 40, this.ctx);
-    let game = new Game(noob);          
+    let game = new Game(noob);  
+    
+    menuScreen.style.display = "none";
+
     document.addEventListener('keydown', (e) => {
         switch (e.code) {
             case 'ArrowUp':
