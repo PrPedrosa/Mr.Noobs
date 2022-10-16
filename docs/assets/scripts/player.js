@@ -13,7 +13,7 @@ class Player {
         this.img.addEventListener("load", () =>{
             this.draw()
         })
-        this.img.src = "docs/assets/images/noob.png";
+        this.img.src = "docs/assets/images/char-r.png";
         
     }
     

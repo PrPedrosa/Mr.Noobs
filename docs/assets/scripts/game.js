@@ -6,16 +6,21 @@ class Game {
         this.frames = 0;
         this.enemies = [];
         this.waves = 1;
+        this.j = 1
+        this.score = document.getElementById("score");
+        
 
 
     }
 
     createEnemies(){
        
-        for(let i = 0; i < 3; i++){
+        for(let m = 0; m < this.j; m++){
             this.enemies.push(new Enemy(40, 40, this.ctx))
-            }   
+        }   
+        if (this.waves % 10 === 0) this.j++;
         }
+        
         
     
     sendWaves(){
@@ -54,7 +59,7 @@ class Game {
             return this.player.isTouching(enemy);
         });
         if(touched) this.gameOver = true;
-        console.log(this.gameOver);
+        //console.log(this.gameOver);
     }
 
 
@@ -66,6 +71,8 @@ class Game {
         drawBoard();  
         this.player.draw();
         this.sendWaves();
+        console.log(this.waves);
+        this.score.innerHTML = `Wave: ${this.waves}`
         this.lost();
         if(!this.gameOver) requestAnimationFrame(this.update);     
     } 
@@ -73,11 +80,8 @@ class Game {
     startGame = () => {
         drawBoard();
         this.player.draw();
+        this.gameOver = false;
         this.update();
     }
     
-    stop = () => {
-        console.log("here");
-        cancelAnimationFrame(this.animationFrameId)    
-    }
 }
