@@ -33,7 +33,7 @@ let drawBoard = () => {
     }
     
     for(let i = 0; i <= matrix.length-1; i += 1){
-        ctx.lineWidth = 3
+        ctx.lineWidth = 2
         ctx.strokeStyle = "black";
         ctx.beginPath();
         ctx.moveTo(0, 50*i);
