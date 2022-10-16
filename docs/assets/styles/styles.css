@@ -45,22 +45,35 @@ body{
     left: 35%
 }
 
-#canvas_div{
+#canvas-div{
     position: absolute;
     width: 100vw;
     height: 100vh;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
 #canvas {
+    border: 1px solid black;
     border-radius: 10px;
     width: 400px;
     height: 400px;
 }
 
+
+#go-back-arrow{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 50px;
+    height: 50px;
+
+}
+
 h1 {
-    color: white;
+    color: black;
+    font-size: 2rem;
+    margin-top: 20px;
 }

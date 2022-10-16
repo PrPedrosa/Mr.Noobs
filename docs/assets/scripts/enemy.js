@@ -26,7 +26,7 @@ class Enemy {
     draw(){
         //get enemy animation
         this.frames += 0.15
-        
+
         //get warning sign
         if(this.identifier === "startsLeft" && this.position[0] < 0) {
             this.warningImg.src = this.warningImgSrc[0];
@@ -70,16 +70,16 @@ class Enemy {
         let randSecondPos = Math.floor(Math.random()*6);
         let secondPos = [55, 105, 155, 205, 255, 305];
         
-        if(randFirstPos === 0) return [-90, secondPos[randSecondPos]];
+        if(randFirstPos === 0) return [-100, secondPos[randSecondPos]];
         else if (randFirstPos === 1) return [490, secondPos[randSecondPos]]; 
-        else if (randFirstPos === 2) return [secondPos[randSecondPos], -90]; 
+        else if (randFirstPos === 2) return [secondPos[randSecondPos], -100]; 
         else if (randFirstPos === 3) return [secondPos[randSecondPos], 490]; 
     }
     
     identify(){
-        if(this.position[0] === -90) return "startsLeft";
+        if(this.position[0] === -100) return "startsLeft";
         else if(this.position[0] === 490) return "startsRight";
-        else if(this.position[1] === -90) return "startsTop";
+        else if(this.position[1] === -100) return "startsTop";
         else if(this.position[1] === 490) return "startsBottom";
     }
 

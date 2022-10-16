@@ -74,7 +74,9 @@ class Game {
         console.log(this.waves);
         this.score.innerHTML = `Wave: ${this.waves}`
         this.lost();
-        if(!this.gameOver) requestAnimationFrame(this.update);     
+        //if(!this.gameOver) requestAnimationFrame(this.update);     
+        this.animationFrameId = requestAnimationFrame(this.update)
+        if(this.gameOver) cancelAnimationFrame(this.animationFrameId);
     } 
 
     startGame = () => {

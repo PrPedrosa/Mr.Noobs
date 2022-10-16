@@ -51,18 +51,16 @@ let drawBoard = () => {
 }
 
 
+let startBtn = document.getElementById("start-btn");
+let menuScreen = document.getElementById("menu-screen");
+let canvasScreen = document.getElementById("canvas-div");
+let goBackBtn = document.getElementById("go-back-arrow");
 
-
-
-
-
-let button = document.getElementById("start-btn");
-let menuScreen = document.getElementById("menu-screen")
-
-button.addEventListener("click", () => {
+startBtn.addEventListener("click", () => {
     let noob = new Player(205, 205, 40, 40, this.ctx);
     let game = new Game(noob);  
-    
+
+    canvasScreen.style.display = "flex";
     menuScreen.style.display = "none";
 
     document.addEventListener('keydown', (e) => {
@@ -82,7 +80,15 @@ button.addEventListener("click", () => {
             }
         })
     game.startGame();
+
+    goBackBtn.addEventListener("click", () => {
+        game.gameOver = true;
+        menuScreen.style.display = "flex";
+        canvasScreen.style.display = "none";
+    })
 })
+
+
 
 
 
