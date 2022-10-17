@@ -63,27 +63,27 @@ class Game {
             this.createEnemies();
             this.waves ++;
         }
-        this.drawWarning(); 
+        //this.drawWarning(); 
 
         for(let i = 0; i < this.enemies.length; i++){
             if(this.enemies[i].identifyPos === "startsTop"){
                 if(this.enemies[i].position[1] > 400) this.enemies.splice(i, 1);
-                else {this.enemies[i].position[1] += 1.5;
+                else {//this.enemies[i].position[1] += 1.5;
                 this.enemies[i].draw();}
             }
             else if(this.enemies[i].identifyPos === "startsBottom"){
                 if(this.enemies[i].position[1] < 0) this.enemies.splice(i, 1);
-                else {this.enemies[i].position[1] -= 1.5;
+                else {//this.enemies[i].position[1] -= 1.5;
                 this.enemies[i].draw();}
             }
             else if(this.enemies[i].identifyPos === "startsLeft"){
                 if(this.enemies[i].position[0] > 400) this.enemies.splice(i, 1);
-                else {this.enemies[i].position[0] += 1.5;
+                else {//this.enemies[i].position[0] += 1.5;
                 this.enemies[i].draw();}
             }
             else if(this.enemies[i].identifyPos === "startsRight"){
                 if(this.enemies[i].position[0] < 0) this.enemies.splice(i, 1);
-                else {this.enemies[i].position[0] -= 1.5;
+                else {//this.enemies[i].position[0] -= 1.5;
                 this.enemies[i].draw();}
             }
             
@@ -104,11 +104,11 @@ class Game {
             this.waves = 0;
             this.numberOfEnemies = 1;
         }
-        if (this.level === 2 && this.timer < 501) this.timer ++
+        if (this.level === 2 && this.timer < 1001) this.timer ++
     }
 
     checkGameOver(){
-        if (this.touched && this.level === 3) this.gameOver = true;
+        if (this.touched && this.level === 2 && this.timer > 500) this.gameOver = true;
     }
 
 

@@ -14,8 +14,8 @@ class Enemy {
         this.enemyImgSrcDown = ["docs/assets/images/Pulse/PulseD/pulse1Down.png", "docs/assets/images/Pulse/PulseD/pulse2Down.png", "docs/assets/images/Pulse/PulseD/pulse3Down.png", "docs/assets/images/Pulse/PulseD/pulse4Down.png"] 
         this.frames = 0;
         this.identifyEnemy = "magic";
-        /* this.warningImg = new Image();
-        this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"] */
+        this.warningImg = new Image();
+        this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"] 
         
         /* this.img.addEventListener("load", () =>{
             this.draw()
@@ -27,7 +27,7 @@ class Enemy {
     
 
     //put this in game.js???
-    /* drawWarning(){
+    drawWarning(){
         if(this.identifyPos === "startsLeft" && this.position[0] < 0) {
             this.warningImg.src = this.warningImgSrc[0];
             ctx.drawImage(this.warningImg, 0, this.position[1], 40, 40);
@@ -44,27 +44,32 @@ class Enemy {
             this.warningImg.src = this.warningImgSrc[2];
             ctx.drawImage(this.warningImg, this.position[0], 350, 40, 40)
         }
-    } */
+    } 
 
     draw(){
         //get enemy animation
         this.frames += 0.15;
+        this.drawWarning();
        
         //draw enemy
         if(this.identifyPos === "startsLeft"){
             this.enemyImg.src = this.enemyImgSrcRight[Math.floor(this.frames % 3)];
+            this.position[0] += 1.5
             ctx.drawImage(this.enemyImg, this.position[0], this.position[1], this.w, this.h);
         }
         if(this.identifyPos === "startsRight"){
             this.enemyImg.src = this.enemyImgSrcLeft[Math.floor(this.frames % 3)];
+            this.position[0] -= 1.5
             ctx.drawImage(this.enemyImg, this.position[0], this.position[1], this.w, this.h);
         }
         if(this.identifyPos === "startsTop"){
             this.enemyImg.src = this.enemyImgSrcDown[Math.floor(this.frames % 3)];
+            this.position[1] += 1.5
             ctx.drawImage(this.enemyImg, this.position[0], this.position[1], this.w, this.h);
         }
         if(this.identifyPos === "startsBottom"){
             this.enemyImg.src = this.enemyImgSrcUp[Math.floor(this.frames % 3)];
+            this.position[1] -= 1.5
             ctx.drawImage(this.enemyImg, this.position[0], this.position[1], this.w, this.h);
         }
 

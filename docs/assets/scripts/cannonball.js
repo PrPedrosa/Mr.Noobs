@@ -6,14 +6,53 @@ class Cannonball{
         this.ctx = ctx;
         this.identifyPos = this.identifyPosition();
         this.identifyEnemy = "cannon";
-
         this.cannonImg = new Image();
+        this.warningImg = new Image();
+        this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"]
 
     }
 
+
+    drawWarning(){
+        if(this.identifyPos === "startsLeft" && this.position[0] < 0) {
+            this.warningImg.src = this.warningImgSrc[0];
+            ctx.drawImage(this.warningImg, 0, this.position[1], 40, 40);
+        }
+        if(this.identifyPos === "startsRight" && this.position[0] > 400) {
+            this.warningImg.src = this.warningImgSrc[1];
+            ctx.drawImage(this.warningImg, 350, this.position[1], 40, 40)
+        }
+        if(this.identifyPos === "startsTop" && this.position[1] < 0) {
+            this.warningImg.src = this.warningImgSrc[3];
+            ctx.drawImage(this.warningImg, this.position[0], 0, 40, 40)
+        }
+        if(this.identifyPos === "startsBottom" && this.position[1] > 400) {
+            this.warningImg.src = this.warningImgSrc[2];
+            ctx.drawImage(this.warningImg, this.position[0], 350, 40, 40)
+        }
+    }
+
     draw(){
+
+        this.drawWarning();
         this.cannonImg.src = "docs/assets/images/cannonball.png";
-        ctx.drawImage(this.cannonImg, this.position[0], this.position[1], this.w, this.h);
+
+        if(this.identifyPos === "startsLeft"){
+            this.position[0] += 5
+            ctx.drawImage(this.cannonImg, this.position[0], this.position[1], this.w, this.h);
+        }
+        if(this.identifyPos === "startsRight"){
+            this.position[0] -= 5
+            ctx.drawImage(this.cannonImg, this.position[0], this.position[1], this.w, this.h);
+        }
+        if(this.identifyPos === "startsTop"){
+            this.position[1] += 5
+            ctx.drawImage(this.cannonImg, this.position[0], this.position[1], this.w, this.h);
+        }
+        if(this.identifyPos === "startsBottom"){
+            this.position[1] -= 5
+            ctx.drawImage(this.cannonImg, this.position[0], this.position[1], this.w, this.h);
+        }
     }
 
     randPos(){
