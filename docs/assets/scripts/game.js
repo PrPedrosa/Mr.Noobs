@@ -13,6 +13,8 @@ class Game {
         this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"]
         this.touched = false;
         this.timer = 0;
+        this.deadImg = new Image();
+        this.deadImg.src = "docs/assets/images/stickmanDead.png"
 
 
     }
@@ -43,23 +45,38 @@ class Game {
        
         for(let m = 0; m < this.numberOfEnemies; m++){
             if(this.level === 1) {
-                this.enemies.push(new Enemy(35, 35, this.ctx))
+                this.enemies.push(new EnemyMagic(35, 35, this.ctx))
                 
             }
             
             else if(this.level === 2 && this.timer > 500) {
-                this.enemies.push(new Cannonball(35, 35, this.ctx))
+                this.enemies.push(new EnemyCannonball(35, 35, this.ctx))
         
             }
+
+            else if(this.level === 3 && this.timer > 1000){
+                this.enemies.push(new EnemyLaser(35, 35, this.ctx))
+            }
         } 
-        if (this.waves % 10 === 0) this.numberOfEnemies++;
-        console.log(this.numberOfEnemies)
-        }
+        if (this.level === 1 && this.waves % 10 === 0) this.numberOfEnemies++;
+        if (this.level === 2 && this.waves % 7 === 0) this.numberOfEnemies++;
+        if (this.level === 3 && this.waves % 5 === 0) this.numberOfEnemies++;
+    }
         
         
     
     sendWaves(){
-         if(this.frames % 120 === 0 && (this.timer === 0 || this.timer > 500)) {
+         if(this.frames % 120 === 0 && this.timer === 0) {//level 1
+            this.createEnemies();
+            this.waves ++;
+        }
+
+        if(this.frames % 100 === 0 && this.timer > 500 && this.timer < 505) {//level 2
+            this.createEnemies();
+            this.waves ++;
+        }
+
+        if(this.frames % 80 === 0 && this.timer > 1000) {
             this.createEnemies();
             this.waves ++;
         }
@@ -104,11 +121,24 @@ class Game {
             this.waves = 0;
             this.numberOfEnemies = 1;
         }
-        if (this.level === 2 && this.timer < 1001) this.timer ++
+        if (this.timer > 0 && this.timer < 350) ctx.drawImage(this.deadImg, this.player.x, this.player.y, this.player.w, this.player.h);
+        if (this.level === 2 && this.timer < 502) this.timer ++;
+        console.log(this.timer)
+    }
+
+    goLevel3(){
+        if (this.touched && this.timer > 500){
+            this.level = 3;
+            this.waves = 0;
+            this.numberOfEnemies = 1;
+        }
+        if (this.timer > 502 && this.timer < 1000) ctx.drawImage(this.deadImg, this.player.x, this.player.y, this.player.w, this.player.h);
+        if (this.level === 3 && this.timer < 1001) this.timer ++;
     }
 
     checkGameOver(){
-        if (this.touched && this.level === 2 && this.timer > 500) this.gameOver = true;
+        if (this.touched && this.level === 3 && this.timer > 900) this.gameOver = true;
+        //create a new timer and if(that timer is bigger than x, game over is true )
     }
 
 
@@ -118,13 +148,15 @@ class Game {
     update = () => {
         this.frames++;
         drawBoard();  
-        this.player.draw();
+        if(!(this.timer > 0 && this.timer < 200)) this.player.draw();
         this.sendWaves();
         this.score.innerHTML = `Wave: ${this.waves}`
         this.lostLevel();
         this.goLevel2();
+        this.goLevel3();
         this.checkGameOver();    
         this.animationFrameId = requestAnimationFrame(this.update)
+        
         if(this.gameOver) cancelAnimationFrame(this.animationFrameId);
     } 
 

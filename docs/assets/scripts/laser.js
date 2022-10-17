@@ -1,12 +1,13 @@
-class EnemyCannonball{
+class EnemyLaser{
     constructor(w, h, ctx){
         this.position = this.randPos();
         this.w = w;
         this.h = h;
         this.ctx = ctx;
         this.identifyPos = this.identifyPosition();
-        this.identifyEnemy = "cannon";
-        this.cannonImg = new Image();
+        this.identifyEnemy = "laser";
+        this.laserImg = new Image();
+        this.laserImgSrc = ["docs/assets/images/laserSide.png", "docs/assets/images/laserTop.png"]
         this.warningImg = new Image();
         this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"]
 
@@ -35,23 +36,26 @@ class EnemyCannonball{
     draw(){
 
         this.drawWarning();
-        this.cannonImg.src = "docs/assets/images/cannonball.png";
 
         if(this.identifyPos === "startsLeft"){
+            this.laserImg.src = this.laserImgSrc[0]
             this.position[0] += 5
-            ctx.drawImage(this.cannonImg, this.position[0], this.position[1], this.w, this.h);
+            ctx.drawImage(this.laserImg, this.position[0], this.position[1], this.w, this.h);
         }
         if(this.identifyPos === "startsRight"){
+            this.laserImg.src = this.laserImgSrc[0]
             this.position[0] -= 5
-            ctx.drawImage(this.cannonImg, this.position[0], this.position[1], this.w, this.h);
+            ctx.drawImage(this.laserImg, this.position[0], this.position[1], this.w, this.h);
         }
         if(this.identifyPos === "startsTop"){
+            this.laserImg.src = this.laserImgSrc[1]
             this.position[1] += 5
-            ctx.drawImage(this.cannonImg, this.position[0], this.position[1], this.w, this.h);
+            ctx.drawImage(this.laserImg, this.position[0], this.position[1], this.w, this.h);
         }
         if(this.identifyPos === "startsBottom"){
+            this.laserImg.src = this.laserImgSrc[1]
             this.position[1] -= 5
-            ctx.drawImage(this.cannonImg, this.position[0], this.position[1], this.w, this.h);
+            ctx.drawImage(this.laserImg, this.position[0], this.position[1], this.w, this.h);
         }
     }
 

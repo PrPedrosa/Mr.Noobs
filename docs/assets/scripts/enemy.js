@@ -1,6 +1,6 @@
 //Math.random() * (max - min) + min;
 
-class Enemy {
+class EnemyMagic {
     constructor(w, h, ctx){
         this.position = this.randPos();
         this.w = w;
