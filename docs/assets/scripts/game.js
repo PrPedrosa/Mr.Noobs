@@ -45,7 +45,7 @@ class Game {
             this.enemies.push(new Enemy(35, 35, this.ctx))
             }
             else this.enemies.push(new Cannonball(35, 35, this.ctx))
-        }   
+        } 
         if (this.waves % 11 === 0) this.numberOfEnemies++;
         console.log(this.enemies)
         }
@@ -53,7 +53,7 @@ class Game {
         
     
     sendWaves(){
-        if(this.frames % 120 === 0) {
+         if(this.frames % 120 === 0 && !this.touched) {
             this.createEnemies();
             this.waves ++
         }
@@ -92,13 +92,13 @@ class Game {
 
     goLevel2(){
         if (this.touched) {
+            //change img, disable controls
             this.level = 2;
-
         }
     }
 
     checkGameOver(){
-        if (this.touched && this.level === 2) this.gameOver = true;
+        if (this.touched && this.level === 3) this.gameOver = true;
     }
 
 
