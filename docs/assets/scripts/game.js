@@ -12,6 +12,7 @@ class Game {
         this.warningImg = new Image();
         this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"]
         this.touched = false;
+        this.timer = 0;
 
 
     }
@@ -41,44 +42,49 @@ class Game {
     createEnemies(){
        
         for(let m = 0; m < this.numberOfEnemies; m++){
-            if(this.level === 1){
-            this.enemies.push(new Enemy(35, 35, this.ctx))
+            if(this.level === 1) {
+                this.enemies.push(new Enemy(35, 35, this.ctx))
+                
             }
-            else this.enemies.push(new Cannonball(35, 35, this.ctx))
+            
+            else if(this.level === 2 && this.timer > 500) {
+                this.enemies.push(new Cannonball(35, 35, this.ctx))
+        
+            }
         } 
-        if (this.waves % 11 === 0) this.numberOfEnemies++;
-        console.log(this.enemies)
+        if (this.waves % 10 === 0) this.numberOfEnemies++;
+        console.log(this.numberOfEnemies)
         }
         
         
     
     sendWaves(){
-         if(this.frames % 120 === 0 && !this.touched) {
+         if(this.frames % 120 === 0 && (this.timer === 0 || this.timer > 500)) {
             this.createEnemies();
-            this.waves ++
+            this.waves ++;
         }
         this.drawWarning(); 
 
         for(let i = 0; i < this.enemies.length; i++){
             if(this.enemies[i].identifyPos === "startsTop"){
-                this.enemies[i].position[1] += 1.5;
-                this.enemies[i].draw();
                 if(this.enemies[i].position[1] > 400) this.enemies.splice(i, 1);
+                else {this.enemies[i].position[1] += 1.5;
+                this.enemies[i].draw();}
             }
-            if(this.enemies[i].identifyPos === "startsBottom"){
-                this.enemies[i].position[1] -= 1.5;
-                this.enemies[i].draw();
+            else if(this.enemies[i].identifyPos === "startsBottom"){
                 if(this.enemies[i].position[1] < 0) this.enemies.splice(i, 1);
+                else {this.enemies[i].position[1] -= 1.5;
+                this.enemies[i].draw();}
             }
-            if(this.enemies[i].identifyPos === "startsLeft"){
-                this.enemies[i].position[0] += 1.5;
-                this.enemies[i].draw();
+            else if(this.enemies[i].identifyPos === "startsLeft"){
                 if(this.enemies[i].position[0] > 400) this.enemies.splice(i, 1);
+                else {this.enemies[i].position[0] += 1.5;
+                this.enemies[i].draw();}
             }
-            if(this.enemies[i].identifyPos === "startsRight"){
-                this.enemies[i].position[0] -= 1.5;
-                this.enemies[i].draw();
+            else if(this.enemies[i].identifyPos === "startsRight"){
                 if(this.enemies[i].position[0] < 0) this.enemies.splice(i, 1);
+                else {this.enemies[i].position[0] -= 1.5;
+                this.enemies[i].draw();}
             }
             
         }
@@ -87,14 +93,18 @@ class Game {
     lostLevel(){
         this.touched = this.enemies.some(enemy => {
             return this.player.isTouching(enemy);
-        });
+        })
+        
     }
 
     goLevel2(){
         if (this.touched) {
             //change img, disable controls
             this.level = 2;
+            this.waves = 0;
+            this.numberOfEnemies = 1;
         }
+        if (this.level === 2 && this.timer < 501) this.timer ++
     }
 
     checkGameOver(){

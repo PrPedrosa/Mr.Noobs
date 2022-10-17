@@ -13,6 +13,7 @@ class Enemy {
         this.enemyImgSrcUp = ["docs/assets/images/Pulse/PulseU/pulse1Up.png", "docs/assets/images/Pulse/PulseU/pulse2Up.png", "docs/assets/images/Pulse/PulseU/pulse3Up.png", "docs/assets/images/Pulse/PulseU/pulse4Up.png"]
         this.enemyImgSrcDown = ["docs/assets/images/Pulse/PulseD/pulse1Down.png", "docs/assets/images/Pulse/PulseD/pulse2Down.png", "docs/assets/images/Pulse/PulseD/pulse3Down.png", "docs/assets/images/Pulse/PulseD/pulse4Down.png"] 
         this.frames = 0;
+        this.identifyEnemy = "magic";
         /* this.warningImg = new Image();
         this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"] */
         

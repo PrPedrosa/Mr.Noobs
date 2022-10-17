@@ -66,16 +66,16 @@ startBtn.addEventListener("click", () => {
     document.addEventListener('keydown', (e) => {
         switch (e.code) {
             case 'ArrowUp':
-                if(noob.y > 55 && !game.touched) noob.moveUp();
+                if(noob.y > 55 && (game.timer === 0 || game.timer > 400)) noob.moveUp();
                 break;
             case 'ArrowDown':
-                if(noob.y < 305 && !game.touched) noob.moveDown();
+                if(noob.y < 305 && (game.timer === 0 || game.timer > 400)) noob.moveDown();
                 break;
             case 'ArrowLeft':
-                if(noob.x > 55 && !game.touched) noob.moveLeft();
+                if(noob.x > 55 && (game.timer === 0 || game.timer > 400)) noob.moveLeft();
                 break;
             case 'ArrowRight':
-                if(noob.x < 305 && !game.touched)  noob.moveRight();
+                if(noob.x < 305 && (game.timer === 0 || game.timer > 400))  noob.moveRight();
                 break;
             }
         })

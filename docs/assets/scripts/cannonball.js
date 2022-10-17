@@ -5,6 +5,7 @@ class Cannonball{
         this.h = h;
         this.ctx = ctx;
         this.identifyPos = this.identifyPosition();
+        this.identifyEnemy = "cannon";
 
         this.cannonImg = new Image();
 
