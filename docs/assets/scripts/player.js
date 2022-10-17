@@ -12,10 +12,6 @@ class Player {
 
         this.playerImg = new Image();
         this.playerImgSrc = ["docs/assets/images/stickman1.png", "docs/assets/images/stickman2.png"]
-        /* this.playerImg.addEventListener("load", () =>{
-            this.draw()
-        }) */
-        
     }
     
     draw(){

@@ -6,7 +6,7 @@ class Game {
         this.frames = 0;
         this.enemies = [];
         this.waves = 1;
-        this.difficulty = 1
+        this.numberOfEnemies = 1
         this.score = document.getElementById("score");
         
 
@@ -15,10 +15,10 @@ class Game {
 
     createEnemies(){
        
-        for(let m = 0; m < this.difficulty; m++){
+        for(let m = 0; m < this.numberOfEnemies; m++){
             this.enemies.push(new Enemy(35, 35, this.ctx))
         }   
-        if (this.waves % 10 === 0) this.difficulty++;
+        if (this.waves % 10 === 0) this.numberOfEnemies++;
         }
         
         
@@ -73,8 +73,7 @@ class Game {
         this.sendWaves();
         console.log(this.waves);
         this.score.innerHTML = `Wave: ${this.waves}`
-        this.lost();
-        //if(!this.gameOver) requestAnimationFrame(this.update);     
+        this.lost();    
         this.animationFrameId = requestAnimationFrame(this.update)
         if(this.gameOver) cancelAnimationFrame(this.animationFrameId);
     } 
