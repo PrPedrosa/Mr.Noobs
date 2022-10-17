@@ -8,17 +8,17 @@ class Game {
         this.wavesMagic = 0;
         this.wavesCannon = 0;
         this.wavesLaser = 0;
-        this.numberOfEnemies = 1
+        this.numberOfEnemies = 1;
         this.score = document.getElementById("score");
         this.level = 1;
         this.warningImg = new Image();
-        this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"]
+        this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"];
         this.touched = false;
         this.timer = 0;
         this.deadImg = new Image();
-        this.deadImg.src = "docs/assets/images/stickmanDead.png"
+        this.deadImg.src = "docs/assets/images/stickmanDead.png";
         this.lostImg = new Image();
-        this.lostImg.src = "docs/assets/images/lostStickman.png"
+        this.lostImg.src = "docs/assets/images/lostStickman.png";
         this.endTimer = 0;
 
 
@@ -66,7 +66,6 @@ class Game {
         if (this.level === 1 && this.wavesMagic % 10 === 0 && this.numberOfEnemies < 12) this.numberOfEnemies++;
         if (this.level === 2 && this.wavesCannon % 7 === 0 && this.numberOfEnemies < 12) this.numberOfEnemies++;
         if (this.level === 3 && this.wavesLaser % 5 === 0 && this.numberOfEnemies < 10) this.numberOfEnemies++;
-        console.log(this.numberOfEnemies);
     }
         
         
@@ -86,7 +85,7 @@ class Game {
             this.createEnemies();
             if(this.endTimer === 0) this.wavesLaser ++;
         }
-        //this.drawWarning(); 
+         
 
         for(let i = 0; i < this.enemies.length; i++){
             if(this.enemies[i].identifyPos === "startsTop"){
@@ -137,7 +136,7 @@ class Game {
     drawPlayer(){
         if (this.timer > 0 && this.timer < 400) ctx.drawImage(this.deadImg, this.player.x, this.player.y, this.player.w, this.player.h);
         else if (this.timer > 502 && this.timer < 900) ctx.drawImage(this.deadImg, this.player.x, this.player.y, this.player.w, this.player.h);
-        else if (this.timer > 1001) ctx.drawImage(this.deadImg, this.player.x, this.player.y, this.player.w, this.player.h);
+        else if (this.timer > 1001) ctx.drawImage(this.lostImg, this.player.x, this.player.y, this.player.w, this.player.h);
         else this.player.draw();
     }
 
@@ -163,8 +162,7 @@ class Game {
         this.goLevel2();
         this.goLevel3();
         this.checkGameOver();    
-        this.animationFrameId = requestAnimationFrame(this.update)
-        
+        this.animationFrameId = requestAnimationFrame(this.update);
         if(this.gameOver) cancelAnimationFrame(this.animationFrameId);
     } 
 

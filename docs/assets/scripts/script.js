@@ -23,11 +23,11 @@ let drawBoard = () => {
         for(let j = 0; j <= matrix.length-1; j +=1){
             if(matrix[i][j] === 1){
                 ctx.fillStyle = "AntiqueWhite";
-                ctx.fillRect(i*50, j*50, 50, 50)
+                ctx.fillRect(i*50, j*50, 50, 50);
             }
             if(matrix[i][j] === 0){
                 ctx.fillStyle = "grey";
-                ctx.fillRect(i*50, j*50, 50, 50)
+                ctx.fillRect(i*50, j*50, 50, 50);
             } 
         }
     }
@@ -38,15 +38,15 @@ let drawBoard = () => {
         ctx.beginPath();
         ctx.moveTo(0, 50*i);
         ctx.lineTo(canvas.width, 50*i);
-        ctx.stroke()
-        ctx.closePath()
+        ctx.stroke();
+        ctx.closePath();
         
     ctx.strokeStyle = "black";
     ctx.beginPath();
     ctx.moveTo(50*i, 0);
     ctx.lineTo(50*i, canvas.height);
-    ctx.stroke()
-    ctx.closePath()   
+    ctx.stroke();
+    ctx.closePath();   
 }
 }
 

@@ -1,7 +1,6 @@
 class Player {
     //cant move in grey area
     //one life shield? (bonus)
-    //
     constructor(x, y, w, h, ctx){
         this.x = x;
         this.y = y;

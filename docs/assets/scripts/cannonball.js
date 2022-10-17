@@ -8,8 +8,7 @@ class EnemyCannonball{
         this.identifyEnemy = "cannon";
         this.cannonImg = new Image();
         this.warningImg = new Image();
-        this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"]
-
+        this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"];
     }
 
 

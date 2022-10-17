@@ -81,13 +81,13 @@ class EnemyLaser{
         return this.position[1];
     }
     bottomPos(){
-        return this.position[1] + this.h;
+        return this.position[1] + this.h; //hard code height
     }
     leftPos(){
         return this.position[0];
     }
     rightPos(){
-        return this.position[0] + this.w;
+        return this.position[0] + this.w; //hard code width
     }
 
 

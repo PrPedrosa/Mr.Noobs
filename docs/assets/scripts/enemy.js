@@ -17,15 +17,10 @@ class EnemyMagic {
         this.warningImg = new Image();
         this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"] 
         
-        /* this.img.addEventListener("load", () =>{
-            this.draw()
-        }) */
     }
     //increase speed every 10waves
     //increase number of enemies every 20waves
-    //3 different enemies (bonus)
     
-
     //put this in game.js???
     drawWarning(){
         if(this.identifyPos === "startsLeft" && this.position[0] < 0) {
@@ -105,7 +100,4 @@ class EnemyMagic {
     rightPos(){
         return this.position[0] + this.w;
     }
-
-
-
 }
