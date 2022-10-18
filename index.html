@@ -8,12 +8,20 @@
     <title>Mr.Noobs</title>
 </head>
 <body>
-    
+    <!-- write my name -->
     <div id="parent">
         
         <div id="canvas-div">
             <img src="./docs/assets/images/goBackArrow.png" alt="Go back arrow" id="go-back-arrow">
+            <img src="./docs/assets/images/magicText.png" alt="Level name" id="level-image">
             <h1 id="score"></h1>
+            <div id="final-score-div">
+                <span class="score-span" id="magic-score"></span>
+                <span class="multiply"> x </span>
+                <span class="score-span" id="cannon-score"></span>
+                <span class="multiply"> x </span>
+                <span class="score-span" id="laser-score"></span>
+            </div>
             <canvas id="canvas" width="400px" height="400px"></canvas>
             <img src="./docs/assets/images/gameOver.png" alt="Game over" id="game-over-img">
         </div>

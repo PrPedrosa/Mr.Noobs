@@ -21,6 +21,10 @@ class Game {
         this.lostImg = new Image();
         this.lostImg.src = "docs/assets/images/lostStickman.png";
         this.endTimer = 0;
+        this.levelImg = document.getElementById("level-image");
+        this.magicScore = document.getElementById("magic-score");
+        this.cannonScore = document.getElementById("cannon-score");
+        this.laserScore = document.getElementById("laser-score");
 
 
     }
@@ -149,19 +153,29 @@ class Game {
 
     updateScore(){
         if(this.timer < 150){
-            this.score.innerHTML = `Magic Missiles<p>${this.wavesMagic}</p>`
+            this.levelImg.src = "docs/assets/images/magicText.png";
+            this.score.innerHTML = this.wavesMagic;
+            this.score.style.color = "blue";
+            
         }
-        if(this.timer > 150 && this.timer < 700){
-            this.score.innerHTML = `Cannon<p>${this.wavesCannon}</p>`
+        else if(this.timer > 150 && this.timer < 700){
+            this.levelImg.src = "docs/assets/images/cannonText.png";
+            this.score.innerHTML = this.wavesCannon;
+            this.score.style.color = "black";
         }
-        else if(this.timer > 700){
-            this.score.innerHTML = `Laser<p>${this.wavesLaser}</p>`
+        else if(this.timer > 700 && this.timer < 1050){
+            this.levelImg.src = "docs/assets/images/laserText.png";
+            this.score.innerHTML = this.wavesLaser;
+            this.score.style.color = "red";
+        }
+        else if(this.timer === 1100){
+            this.levelImg.style.display = "none";
+            this.score.style.display = "none";
+            this.magicScore.innerHTML = this.wavesMagic;
+            this.cannonScore.innerHTML = this.wavesCannon;
+            this.laserScore.innerHTML = this.wavesLaser;
         }
     }
-
-
-
-
 
 
     update = () => {
@@ -183,6 +197,8 @@ class Game {
     } 
 
     startGame = () => {
+        this.levelImg.style.display = "block";
+        this.score.style.display = "block";
         drawBoard();
         this.player.draw();
         this.gameOver = false;
