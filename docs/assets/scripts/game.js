@@ -25,6 +25,9 @@ class Game {
         this.magicScore = document.getElementById("magic-score");
         this.cannonScore = document.getElementById("cannon-score");
         this.laserScore = document.getElementById("laser-score");
+        this.multiplyScore = document.getElementById("display-final-score");
+        this.scoreImg = document.getElementById("score-img");
+        this.scoreTable = document.getElementById("final-score-div");
 
 
     }
@@ -122,7 +125,6 @@ class Game {
 
     goLevel2(){
         if (this.touched) {
-            //change img, disable controls
             this.level = 2;
             this.numberOfEnemies = 1;
         }
@@ -174,6 +176,9 @@ class Game {
             this.magicScore.innerHTML = this.wavesMagic;
             this.cannonScore.innerHTML = this.wavesCannon;
             this.laserScore.innerHTML = this.wavesLaser;
+            this.multiplyScore.innerHTML = `${this.wavesMagic * this.wavesCannon * this.wavesLaser}`
+            this.scoreImg.style.display = "block";
+            this.scoreTable.style.display = "flex";
         }
     }
 
@@ -203,6 +208,8 @@ class Game {
         this.player.draw();
         this.gameOver = false;
         this.gameOverImg.style.display = "none";
+        this.scoreImg.style.display = "none";
+        this.scoreTable.style.display = "none";
         this.update();
     }
     

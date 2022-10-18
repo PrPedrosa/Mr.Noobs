@@ -69,7 +69,7 @@ body{
 #level-image {
     position: absolute;
     top: 30%;
-    left: 10%;
+    left: 11%;
 }
 
 
@@ -86,7 +86,7 @@ h1 {
     top: 40%;
     left: 14%;
     color: blue;
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: bolder;
     margin-bottom: 10px;
     text-align: center;
@@ -109,8 +109,28 @@ p {
 
 #final-score-div {
     position: absolute;
+    width: 300px;
+    height: 190px;
     top: 30%;
-    right: 20%;
+    right: 4%;
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+
+}
+
+.level-img-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.display-score-img {
+    width: 80;
+    height: 40px
 }
 
 .score-span {
@@ -122,6 +142,13 @@ p {
 .multiply {
     font-size: 2rem;
     color: white;
+    
+}
+
+#display-final-score {
+    font-size: 3.5rem;
+    color: white;
+    text-align: center;
 }
 
 #magic-score {
@@ -136,8 +163,12 @@ p {
     color: red;
 }
 
-
-
+#score-img {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    display: none;
+}
 
 
 #instructions-btn {

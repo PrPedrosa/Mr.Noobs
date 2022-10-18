@@ -15,12 +15,23 @@
             <img src="./docs/assets/images/goBackArrow.png" alt="Go back arrow" id="go-back-arrow">
             <img src="./docs/assets/images/magicText.png" alt="Level name" id="level-image">
             <h1 id="score"></h1>
+            <img src="./docs/assets/images/scoreText.png" alt="score text" id="score-img">
             <div id="final-score-div">
-                <span class="score-span" id="magic-score"></span>
-                <span class="multiply"> x </span>
-                <span class="score-span" id="cannon-score"></span>
-                <span class="multiply"> x </span>
-                <span class="score-span" id="laser-score"></span>
+                <div class="level-img-div">
+                    <img src="./docs/assets/images/magicText.png" alt="" class="display-score-img">
+                    <img src="./docs/assets/images/cannonText.png" alt="" class="display-score-img">
+                    <img src="./docs/assets/images/laserText.png" alt="" class="display-score-img">
+                </div>
+                <div class="level-img-div">
+                    <p class="score-span" id="magic-score">1</p>
+                    <p class="multiply">x</p>
+                    <p class="score-span" id="cannon-score">1</p>
+                    <p class="multiply">x</p>
+                    <p class="score-span" id="laser-score">5</p>
+                </div>
+                <p class="multiply">=</p>
+                <p id="display-final-score"></p>
+                <p class="multiply">points!</p>
             </div>
             <canvas id="canvas" width="400px" height="400px"></canvas>
             <img src="./docs/assets/images/gameOver.png" alt="Game over" id="game-over-img">
