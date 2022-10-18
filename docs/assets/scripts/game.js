@@ -10,6 +10,7 @@ class Game {
         this.wavesLaser = 0;
         this.numberOfEnemies = 1;
         this.score = document.getElementById("score");
+        this.gameOverImg = document.getElementById("game-over-img");
         this.level = 1;
         this.warningImg = new Image();
         this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"];
@@ -144,7 +145,18 @@ class Game {
         if (this.touched && this.level === 3 && this.timer > 900) this.timer = 1100;
         if (this.timer === 1100) this.endTimer ++;
         if (this.endTimer > 100) this.gameOver = true;
-        //create a new timer and if(that timer is bigger than x, game over is true (for animation purposes))
+    }
+
+    updateScore(){
+        if(this.timer < 150){
+            this.score.innerHTML = `Magic Missiles<p>${this.wavesMagic}</p>`
+        }
+        if(this.timer > 150 && this.timer < 700){
+            this.score.innerHTML = `Cannon<p>${this.wavesCannon}</p>`
+        }
+        else if(this.timer > 700){
+            this.score.innerHTML = `Laser<p>${this.wavesLaser}</p>`
+        }
     }
 
 
@@ -157,19 +169,24 @@ class Game {
         drawBoard();  
         this.drawPlayer();
         this.sendWaves();
-        this.score.innerHTML = `Magic: ${this.wavesMagic}// Cannon: ${this.wavesCannon}// Laser: ${this.wavesLaser}`
+        this.updateScore();
         this.lostLevel();
         this.goLevel2();
         this.goLevel3();
-        this.checkGameOver();    
+        this.checkGameOver();   
         this.animationFrameId = requestAnimationFrame(this.update);
-        if(this.gameOver) cancelAnimationFrame(this.animationFrameId);
+        if(this.gameOver) {
+            //this.enemies.splice(0, this.enemies.length);
+            this.gameOverImg.style.display = "block";
+            cancelAnimationFrame(this.animationFrameId);
+        }
     } 
 
     startGame = () => {
         drawBoard();
         this.player.draw();
         this.gameOver = false;
+        this.gameOverImg.style.display = "none";
         this.update();
     }
     

@@ -1,6 +1,7 @@
 *{
     margin: 0;
     font-size: 10px;
+    
 }
 
 body{
@@ -66,14 +67,32 @@ body{
 
 #go-back-arrow{
     position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 50px;
-    height: 50px;
+    top: 5%;
+    left: 3%;
+    width: 65px;
+    height: 65px;
 }
 
 h1 {
     color: black;
-    font-size: 2rem;
-    margin-top: 20px;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+p {
+    color: black;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#game-over-img{
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    width: 50%;
+    display: none;
 }
