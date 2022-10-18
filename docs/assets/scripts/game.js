@@ -93,7 +93,7 @@ class Game {
                 else this.enemies[i].draw();
             }
             else if(this.enemies[i].identifyPos === "startsBottom"){
-                if(this.enemies[i].position[1] < 0) this.enemies.splice(i, 1);
+                if(this.enemies[i].position[1] < -400) this.enemies.splice(i, 1);
                 else this.enemies[i].draw();
             }
             else if(this.enemies[i].identifyPos === "startsLeft"){
@@ -101,7 +101,7 @@ class Game {
                 else this.enemies[i].draw();
             }
             else if(this.enemies[i].identifyPos === "startsRight"){
-                if(this.enemies[i].position[0] < 0) this.enemies.splice(i, 1);
+                if(this.enemies[i].position[0] < -400) this.enemies.splice(i, 1);
                 else this.enemies[i].draw();
             }
             
