@@ -55,6 +55,16 @@ let startBtn = document.getElementById("start-btn");
 let menuScreen = document.getElementById("menu-screen");
 let canvasScreen = document.getElementById("canvas-div");
 let goBackBtn = document.getElementById("go-back-arrow");
+let instructionsBtn = document.getElementById("instructions-btn");
+let instructionsDiv = document.getElementById("instructions-div");
+
+instructionsBtn.onmouseover = () => {
+    instructionsDiv.style.display = "flex";
+}
+
+instructionsBtn.onmouseout = () => {
+    instructionsDiv.style.display = "none";
+}
 
 startBtn.addEventListener("click", () => {
     let noob = new Player(205, 205, 40, 40, this.ctx);

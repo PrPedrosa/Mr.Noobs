@@ -40,10 +40,10 @@ body{
     width: 60%;
 }
 
-#stickman-menu{
+#stickman-on-menu{
     position: absolute;
     top: 65%;
-    left: 35%
+    left: 25%
 }
 
 #canvas-div{
@@ -89,10 +89,47 @@ p {
     text-align: center;
 }
 
-#game-over-img{
+#game-over-img {
     position: absolute;
     top: 30%;
     left: 25%;
     width: 50%;
     display: none;
 }
+
+#instructions-btn {
+    height: 40px; 
+    width: 160px;
+    color: black;
+    background: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 130px;
+    margin-left: 20px;
+}
+
+#instructions-div {
+    position: absolute;
+    left: 65%;
+    bottom: 10%;
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#instructions-img {
+    width: 300px
+}
+
+#move-with-img {
+    width: 150px;
+}
+
+#keys-img {
+    width: 150px;
+}
+
