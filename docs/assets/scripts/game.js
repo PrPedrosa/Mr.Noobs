@@ -29,7 +29,8 @@ class Game {
         this.scoreImg = document.getElementById("score-img");
         this.scoreTable = document.getElementById("final-score-div");
         this.hiScoresList = document.getElementById("hi-scores-list"); //work on this
-        this.createScore = document.getElementsByTagName("li"); //and this and line 184
+        this.hiScoresSpan = document.getElementsByClassName("hi-scores-span");
+        
 
 
     }
@@ -178,13 +179,34 @@ class Game {
             this.magicScore.innerHTML = this.wavesMagic;
             this.cannonScore.innerHTML = this.wavesCannon;
             this.laserScore.innerHTML = this.wavesLaser;
-            this.multiplyScore.innerHTML = `${this.wavesMagic * this.wavesCannon * this.wavesLaser}`
+            this.multiplyScore.innerHTML = this.wavesMagic * this.wavesCannon * this.wavesLaser
             this.scoreImg.style.display = "block";
             this.scoreTable.style.display = "flex";
-            if(this.endTimer === 50){ //work on this
-            this.hiScoresList.appendChild(document.createElement("li"));
-            this.createScore[0].innerHTML = "here";
-            }
+            if(this.endTimer === 50){
+                /* for(let i = 0; i < this.hiScoresSpan.length; i++){
+                    if(+(this.multiplyScore.innerHTML) > +(this.hiScoresSpan[i].innerHTML)){
+                        this.hiScoresSpan[i].innerHTML = this.multiplyScore.innerHTML;
+                        break;//Math.min with indexOF???
+                    }
+                } */
+                let currentHiScoresArr = [];
+                let finalHiScoresArr = [];
+                for(let k = 0; k < this.hiScoresSpan.length; k++) {
+                    currentHiScoresArr.push(+(this.hiScoresSpan[k].innerHTML))
+                }
+                if(+(this.multiplyScore.innerHTML) > Math.min(...currentHiScoresArr)){
+                    this.hiScoresSpan[currentHiScoresArr.indexOf(Math.min(...currentHiScoresArr))].innerHTML = this.multiplyScore.innerHTML
+                }
+
+                for(let p = 0; p < this.hiScoresSpan.length; p++){
+                    finalHiScoresArr.push(+(this.hiScoresSpan[p].innerHTML))
+                }
+                //now sort and equal arrs again with loop
+                finalHiScoresArr.sort((a, b) => {return b - a});
+                finalHiScoresArr.forEach((score, index) =>{
+                    this.hiScoresSpan[index].innerHTML = score;
+                })           
+            }  
         }
     }
 
