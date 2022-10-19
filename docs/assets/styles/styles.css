@@ -236,6 +236,11 @@ p {
 
 #hi-scores-div {
     margin-top: 100px;
+
+}
+
+#hi-scores-list {
+    padding: 0;
 }
 
 #go-back-hiscores {
@@ -247,17 +252,18 @@ p {
     border-radius: 10px;
     font-size: 2rem;
     font-weight: bold;
-    margin-top: 100px;
-    margin-left: 20px;
+    margin-top: 30px;
+    margin-left: 60px;
 }
 
-.hi-scores-span{
-    font-size: 3.5rem;
-    color: white;
-    text-align: center;
-}
 
 .hi-scores-list-element {
     font-size: 3rem;
     font-weight: bolder;
+    margin-bottom: 40px;
+}
+
+#hi-score-texts-div {
+    display: flex;
+    align-items: center;
 }

@@ -28,13 +28,14 @@ class Game {
         this.multiplyScore = document.getElementById("display-final-score");
         this.scoreImg = document.getElementById("score-img");
         this.scoreTable = document.getElementById("final-score-div");
-        this.hiScoresList = document.getElementById("hi-scores-list"); //work on this
+        /* this.hiScoresList = document.getElementById("hi-scores-list"); //work on this
         this.hiScoresSpan = document.getElementsByClassName("hi-scores-span");
-        this.hiScoresListOfWaves = document.getElementsByClassName("hi-scores-list-element");
-        this.hiScoresArray = [document.getElementById("hi-score-1"), document.getElementById("hi-score-2"), document.getElementById("hi-score-3")]
+        this.hiScoresListOfWaves = document.getElementsByClassName("hi-scores-list-element"); */
+        //this.hiScoresArray = [document.getElementById("hi-score-1"), document.getElementById("hi-score-2"), document.getElementById("hi-score-3")]
         this.firstHiScore = document.getElementById("hi-score-1");
         this.secondHiScore = document.getElementById("hi-score-2");
         this.thirdHiScore = document.getElementById("hi-score-3");
+        this.goBackArrow = document.getElementById("go-back-arrow");
 
     }
 
@@ -156,7 +157,11 @@ class Game {
     checkGameOver(){
         if (this.touched && this.level === 3 && this.timer > 900) this.timer = 1100;
         if (this.timer === 1100) this.endTimer ++;
-        if (this.endTimer > 100) this.gameOver = true;
+        if (this.endTimer > 100) {
+            this.gameOver = true;
+            this.goBackArrow.style.width = "200px";
+            this.goBackArrow.style.height = "200px";
+        }
     }
 
     updateScore(){
@@ -188,13 +193,13 @@ class Game {
             if(this.endTimer === 50){
 
                 if(+(this.firstHiScore.firstElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
-                    this.firstHiScore.innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}   =   <span>${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span>`
+                    this.firstHiScore.innerHTML = `     ${this.wavesMagic}      x      ${this.wavesCannon}      x      ${this.wavesLaser}       =      <span>${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span>`
                 }
                 else if(+(this.secondHiScore.firstElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
-                    this.secondHiScore.innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}   =   <span>${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span>`
+                    this.secondHiScore.innerHTML = `     ${this.wavesMagic}      x      ${this.wavesCannon}      x      ${this.wavesLaser}      =      <span>${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span>`
                 }
                 else if(+(this.thirdHiScore.firstElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
-                    this.thirdHiScore.innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}   =   <span>${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span>`
+                    this.thirdHiScore.innerHTML = `     ${this.wavesMagic}      x      ${this.wavesCannon}      x      ${this.wavesLaser}      =      <span>${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span>`
                 }
 
 
@@ -268,7 +273,7 @@ class Game {
         this.checkGameOver();   
         this.animationFrameId = requestAnimationFrame(this.update);
         if(this.gameOver) {
-            //this.enemies.splice(0, this.enemies.length); can do this for the power up
+            //this.enemies.splice(0, this.enemies.length); can do this for the power up maybe
             this.gameOverImg.style.display = "block";
             cancelAnimationFrame(this.animationFrameId);
         }
@@ -283,6 +288,8 @@ class Game {
         this.gameOverImg.style.display = "none";
         this.scoreImg.style.display = "none";
         this.scoreTable.style.display = "none";
+        this.goBackArrow.style.width = "65px";
+        this.goBackArrow.style.height = "65px";
         this.update();
     }
     
