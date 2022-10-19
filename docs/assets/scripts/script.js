@@ -59,15 +59,8 @@ let instructionsBtn = document.getElementById("instructions-btn");
 let instructionsDiv = document.getElementById("instructions-div");
 let hiScoresBtn = document.getElementById("hi-scores-btn");
 let hiScoresScreen = document.getElementById("hi-scores-screen");
+let goBackHiScoresBtn = document.getElementById("go-back-hiscores");
 
-
-let goBackHiScores = document.getElementById("go-back")
-goBackHiScores.addEventListener("click", () => {
-    //game.gameOver = true;
-    hiScoresScreen.style.display = "none";
-    menuScreen.style.display = "flex";
-    //canvasScreen.style.display = "none";
-}) //go back from hiscores
 
 instructionsBtn.onmouseover = () => {
     instructionsDiv.style.display = "flex";
@@ -76,6 +69,11 @@ instructionsBtn.onmouseover = () => {
 instructionsBtn.onmouseout = () => {
     instructionsDiv.style.display = "none";
 }
+
+goBackHiScoresBtn.addEventListener("click", () => {
+    hiScoresScreen.style.display = "none";
+    menuScreen.style.display = "flex";
+}) 
 
 hiScoresBtn.onclick = () => {
     hiScoresScreen.style.display = "flex";

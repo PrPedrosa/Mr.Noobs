@@ -30,6 +30,7 @@ class Game {
         this.scoreTable = document.getElementById("final-score-div");
         this.hiScoresList = document.getElementById("hi-scores-list"); //work on this
         this.hiScoresSpan = document.getElementsByClassName("hi-scores-span");
+        this.hiScoresListOfWaves = document.getElementsByClassName("hi-scores-list-element");
         
 
 
@@ -201,11 +202,25 @@ class Game {
                 for(let p = 0; p < this.hiScoresSpan.length; p++){
                     finalHiScoresArr.push(+(this.hiScoresSpan[p].innerHTML))
                 }
-                //now sort and equal arrs again with loop
+                //now sort and equal arrs again with loop //sorting twice for waves
+                currentHiScoresArr.sort((a, b) => {return b - a});
                 finalHiScoresArr.sort((a, b) => {return b - a});
                 finalHiScoresArr.forEach((score, index) =>{
                     this.hiScoresSpan[index].innerHTML = score;
-                })           
+                })
+                //get waves on highscores
+                for(let q = 0; q < currentHiScoresArr.length; q++){
+                    if(finalHiScoresArr[q] > currentHiScoresArr[q]){
+                        this.hiScoresListOfWaves[q].innerHTML = `${this.wavesMagic}x${this.wavesCannon}x${this.wavesLaser}`
+                    }
+                }
+
+
+
+
+
+                
+                
             }  
         }
     }

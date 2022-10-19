@@ -186,7 +186,7 @@ p {
 
 #instructions-div {
     position: absolute;
-    left: 65%;
+    left: 70%;
     bottom: 10%;
     display: none;
     flex-direction: column;
@@ -236,6 +236,25 @@ p {
 
 #hi-scores-div {
     margin-top: 100px;
+}
+
+#go-back-hiscores {
+    height: 40px; 
+    width: 250px;
+    color: black;
+    background: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
+.hi-scores-span{
+    font-size: 3.5rem;
+    color: white;
+    text-align: center;
 }
 
 
