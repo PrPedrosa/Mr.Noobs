@@ -45,7 +45,7 @@ body{
 #stickman-on-menu{
     position: absolute;
     top: 65%;
-    left: 25%
+    left: 22%
 }
 
 #canvas-div{
@@ -61,7 +61,7 @@ body{
 #canvas {
     border: 1px solid black;
     border-radius: 10px;
-    box-shadow: 30px 20px 10px black;
+    box-shadow: 30px 20px 10px blue;
     width: 500px;
     height: 500px;
 }
@@ -206,4 +206,36 @@ p {
 #keys-img {
     width: 150px;
 }
+
+#hi-scores-btn {
+    height: 40px; 
+    width: 160px;
+    color: black;
+    background: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 130px;
+    margin-left: 20px;
+}
+
+#hi-scores-screen {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo-on-hi-scores {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 25%
+}
+
+#hi-scores-div {
+    margin-top: 100px;
+}
+
 

@@ -28,6 +28,8 @@ class Game {
         this.multiplyScore = document.getElementById("display-final-score");
         this.scoreImg = document.getElementById("score-img");
         this.scoreTable = document.getElementById("final-score-div");
+        this.hiScoresList = document.getElementById("hi-scores-list"); //work on this
+        this.createScore = document.getElementsByTagName("li"); //and this and line 184
 
 
     }
@@ -179,6 +181,10 @@ class Game {
             this.multiplyScore.innerHTML = `${this.wavesMagic * this.wavesCannon * this.wavesLaser}`
             this.scoreImg.style.display = "block";
             this.scoreTable.style.display = "flex";
+            if(this.endTimer === 50){ //work on this
+            this.hiScoresList.appendChild(document.createElement("li"));
+            this.createScore[0].innerHTML = "here";
+            }
         }
     }
 
@@ -195,7 +201,7 @@ class Game {
         this.checkGameOver();   
         this.animationFrameId = requestAnimationFrame(this.update);
         if(this.gameOver) {
-            //this.enemies.splice(0, this.enemies.length);
+            //this.enemies.splice(0, this.enemies.length); can do this for the power up
             this.gameOverImg.style.display = "block";
             cancelAnimationFrame(this.animationFrameId);
         }
