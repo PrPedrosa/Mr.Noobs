@@ -257,4 +257,7 @@ p {
     text-align: center;
 }
 
-
+.hi-scores-list-element {
+    font-size: 3rem;
+    font-weight: bolder;
+}

@@ -31,8 +31,10 @@ class Game {
         this.hiScoresList = document.getElementById("hi-scores-list"); //work on this
         this.hiScoresSpan = document.getElementsByClassName("hi-scores-span");
         this.hiScoresListOfWaves = document.getElementsByClassName("hi-scores-list-element");
-        
-
+        this.hiScoresArray = [document.getElementById("hi-score-1"), document.getElementById("hi-score-2"), document.getElementById("hi-score-3")]
+        this.firstHiScore = document.getElementById("hi-score-1");
+        this.secondHiScore = document.getElementById("hi-score-2");
+        this.thirdHiScore = document.getElementById("hi-score-3");
 
     }
 
@@ -184,13 +186,33 @@ class Game {
             this.scoreImg.style.display = "block";
             this.scoreTable.style.display = "flex";
             if(this.endTimer === 50){
+
+                if(+(this.firstHiScore.firstElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
+                    this.firstHiScore.innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}   =   <span>${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span>`
+                }
+                else if(+(this.secondHiScore.firstElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
+                    this.secondHiScore.innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}   =   <span>${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span>`
+                }
+                else if(+(this.thirdHiScore.firstElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
+                    this.thirdHiScore.innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}   =   <span>${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span>`
+                }
+
+
+                /* for(let s = 0; s < this.hiScoresArray.length; s++){
+                    if(+(this.hiScoresArray[s].firstElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
+                        this.hiScoresArray[s].innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}   =`
+                    }
+                } */
+
+
+
                 /* for(let i = 0; i < this.hiScoresSpan.length; i++){
                     if(+(this.multiplyScore.innerHTML) > +(this.hiScoresSpan[i].innerHTML)){
                         this.hiScoresSpan[i].innerHTML = this.multiplyScore.innerHTML;
                         break;//Math.min with indexOF???
                     }
                 } */
-                let currentHiScoresArr = [];
+                /* let currentHiScoresArr = [];
                 let finalHiScoresArr = [];
                 for(let k = 0; k < this.hiScoresSpan.length; k++) {
                     currentHiScoresArr.push(+(this.hiScoresSpan[k].innerHTML))
@@ -207,13 +229,21 @@ class Game {
                 finalHiScoresArr.sort((a, b) => {return b - a});
                 finalHiScoresArr.forEach((score, index) =>{
                     this.hiScoresSpan[index].innerHTML = score;
-                })
-                //get waves on highscores
-                for(let q = 0; q < currentHiScoresArr.length; q++){
-                    if(finalHiScoresArr[q] > currentHiScoresArr[q]){
-                        this.hiScoresListOfWaves[q].innerHTML = `${this.wavesMagic}x${this.wavesCannon}x${this.wavesLaser}`
+                    if(+(this.multiplyScore.innerHTML) === score){
+                        this.hiScoresListOfWaves[index].innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}   =`
                     }
-                }
+                }) */
+                //get waves on highscores
+                /* if(+(this.multiplyScore.innerHTML) > Math.min(...currentHiScoresArr)){
+                    this.hiScoresListOfWaves[currentHiScoresArr.indexOf(Math.min(...currentHiScoresArr))].innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}   =` */
+
+
+
+                /* for(let q = 0; q < currentHiScoresArr.length; q++){
+                    if(finalHiScoresArr[q] > currentHiScoresArr[q] && this.wavesMagic*this.wavesCannon*this.wavesLaser === finalHiScoresArr[q]){
+                        this.hiScoresListOfWaves[q].innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}`
+                    }//just do Math min here and join all wiho */
+                
 
 
 
