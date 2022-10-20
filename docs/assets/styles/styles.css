@@ -61,7 +61,7 @@ body{
 #canvas {
     border: 1px solid black;
     border-radius: 10px;
-    box-shadow: 30px 20px 10px blue;
+    box-shadow: 0px 0px 100px 0px blue;
     width: 500px;
     height: 500px;
 }
@@ -231,7 +231,7 @@ p {
     position: absolute;
     top: 0%;
     left: 0%;
-    width: 25%
+    width: 25%;
 }
 
 #hi-scores-div {
@@ -241,6 +241,7 @@ p {
 
 #hi-scores-list {
     padding: 0;
+    margin-top: 100px;
 }
 
 #go-back-hiscores {
@@ -256,14 +257,71 @@ p {
     margin-left: 60px;
 }
 
-
-.hi-scores-list-element {
-    font-size: 3rem;
-    font-weight: bolder;
-    margin-bottom: 40px;
-}
-
 #hi-score-texts-div {
     display: flex;
     align-items: center;
+    position: absolute;
+    top: 34%;
+    left: 27%;
+
+}
+
+.hi-scores-list-element {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 40px;
+ /*    display: flex;
+    justify-content: space-around; */
+}
+
+.list-item-div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 700px;
+}
+
+.magic-hiscore {
+    font-size: 3rem;
+    color: rgb(68, 68, 68);
+    /* color:blue */
+    /* color:orange */
+
+}
+
+.cannon-hiscore {
+    font-size: 3rem;
+    color: rgb(68, 68, 68);
+    /* color: black */
+    /* color:orange */
+
+}
+
+.laser-hiscore {
+    font-size: 3rem;
+    color: rgb(68, 68, 68);
+    /* color:red */
+    /* color:orange */
+
+}
+
+.final-score-hiscore {
+    font-size: 4rem;
+}
+
+#hi-scores-img {
+    margin-left: 30px;
+}
+
+#cannon-hiscore-img {
+    margin-left: 30px;
+}
+
+
+#laser-hiscore-img {
+    margin-left: 30px;
+}
+
+#score-hiscore-img {
+    margin-left: 55px;
 }

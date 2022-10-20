@@ -9,7 +9,7 @@ class EnemyLaser{
         this.laserImg = new Image();
         this.laserImgSrc = ["docs/assets/images/laserRed.png", "docs/assets/images/laserRedUp.png"]
         this.warningImg = new Image();
-        this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"]
+        this.warningImgSrc = ["docs/assets/images/warningArrowRight.png", "docs/assets/images/warningArrowLeft.png", "docs/assets/images/warningArrowUp.png", "docs/assets/images/warningArrowDown.png"]
 
     }
 
@@ -21,7 +21,7 @@ class EnemyLaser{
         }
         if(this.identifyPos === "startsRight" && this.position[0] > 400) {
             this.warningImg.src = this.warningImgSrc[1];
-            ctx.drawImage(this.warningImg, 350, this.position[1], 40, 40)
+            ctx.drawImage(this.warningImg, 360, this.position[1], 40, 40)
         }
         if(this.identifyPos === "startsTop" && this.position[1] < 0) {
             this.warningImg.src = this.warningImgSrc[3];
@@ -29,7 +29,7 @@ class EnemyLaser{
         }
         if(this.identifyPos === "startsBottom" && this.position[1] > 400) {
             this.warningImg.src = this.warningImgSrc[2];
-            ctx.drawImage(this.warningImg, this.position[0], 350, 40, 40)
+            ctx.drawImage(this.warningImg, this.position[0], 360, 40, 40)
         }
     }
 

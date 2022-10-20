@@ -36,6 +36,7 @@ class Game {
         this.secondHiScore = document.getElementById("hi-score-2");
         this.thirdHiScore = document.getElementById("hi-score-3");
         this.goBackArrow = document.getElementById("go-back-arrow");
+        this.canvasStyle = document.getElementById("canvas");
 
     }
 
@@ -192,14 +193,14 @@ class Game {
             this.scoreTable.style.display = "flex";
             if(this.endTimer === 50){
 
-                if(+(this.firstHiScore.firstElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
-                    this.firstHiScore.innerHTML = `     ${this.wavesMagic}      x      ${this.wavesCannon}      x      ${this.wavesLaser}       =      <span>${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span>`
+                if(+(this.firstHiScore.lastElementChild.lastElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
+                    this.firstHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`
                 }
-                else if(+(this.secondHiScore.firstElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
-                    this.secondHiScore.innerHTML = `     ${this.wavesMagic}      x      ${this.wavesCannon}      x      ${this.wavesLaser}      =      <span>${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span>`
+                else if(+(this.secondHiScore.lastElementChild.lastElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
+                    this.secondHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`
                 }
-                else if(+(this.thirdHiScore.firstElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
-                    this.thirdHiScore.innerHTML = `     ${this.wavesMagic}      x      ${this.wavesCannon}      x      ${this.wavesLaser}      =      <span>${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span>`
+                else if(+(this.thirdHiScore.lastElementChild.lastElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
+                    this.thirdHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`
                 }
 
 
@@ -260,10 +261,16 @@ class Game {
         }
     }
 
+    styleCanvas(){
+        if(this.timer > 700) this.canvasStyle.style.boxShadow = "0 0 100px 0 red"
+        else if(this.timer > 150) this.canvasStyle.style.boxShadow = "0 0 100px 20px black"
+    }
+
 
     update = () => {
         this.frames++;
         drawBoard();  
+        this.styleCanvas();
         this.drawPlayer();
         this.sendWaves();
         this.updateScore();
@@ -280,6 +287,7 @@ class Game {
     } 
 
     startGame = () => {
+        this.canvasStyle.style.boxShadow = "0 0 100px 0 blue"
         this.levelImg.style.display = "block";
         this.score.style.display = "block";
         drawBoard();
