@@ -59,8 +59,10 @@ let instructionsDiv = document.getElementById("instructions-div");
 let hiScoresBtn = document.getElementById("hi-scores-btn");
 let hiScoresScreen = document.getElementById("hi-scores-screen");
 let goBackHiScoresBtn = document.getElementById("go-back-hiscores");
-let auraBlast = new Image();
-auraBlast.src = "docs/assets/images/auraBlast.jpg"
+//let menuAudio = new Audio("docs/assets/music/game-theme.mp3");
+
+//menuAudio.play();
+
 
 window.addEventListener("load", () =>{
     document.getElementById("hi-score-1").innerHTML = window.localStorage.getItem("hiscore-1")
@@ -109,11 +111,14 @@ startBtn.addEventListener("click", () => {
                 if(noob.x < 305 && (game.timer === 0 || (game.timer > 400 && game.timer < 505) || (game.timer > 900 && game.timer < 1020)))  noob.moveRight();
                 break;
 
-            /* case 'Space':
+            case 'Space':
+                if(game.powerCounter > 0){
+                game.powerTimer = 30;
                 game.enemies.splice(0);
                 game.numberOfEnemies = 2;
-                ctx.drawImage(auraBlast, 0, 0, 400, 400)
-                break; */
+                game.powerCounter -=1
+                }
+                break;
             }
 
         })

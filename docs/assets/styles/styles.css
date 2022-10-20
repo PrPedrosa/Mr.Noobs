@@ -48,6 +48,7 @@ body{
     left: 22%
 }
 
+
 #canvas-div{
     position: absolute;
     width: 100vw;
@@ -90,6 +91,15 @@ h1 {
     font-weight: bolder;
     margin-bottom: 10px;
     text-align: center;
+}
+
+#aura-spell {
+    font-size: 2rem;
+    font-weight: bold;
+    color:#004d00;
+    position: absolute;
+    top: 55%;
+    left: 10%
 }
 
 p {
@@ -200,11 +210,11 @@ p {
 }
 
 #move-with-img {
-    width: 150px;
+    width: 100px;
 }
 
 #keys-img {
-    width: 150px;
+    width: 100px;
 }
 
 #hi-scores-btn {

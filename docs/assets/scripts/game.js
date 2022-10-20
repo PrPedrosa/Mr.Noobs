@@ -33,6 +33,10 @@ class Game {
         this.thirdHiScore = document.getElementById("hi-score-3");
         this.goBackArrow = document.getElementById("go-back-arrow");
         this.canvasStyle = document.getElementById("canvas");
+        this.powerImg = new Image();
+        this.powerTimer = 0;
+        this.powerCounter = 0;
+        this.powerElement = document.getElementById("aura-spell");
 
     }
 
@@ -205,6 +209,23 @@ class Game {
         }
     }
 
+    drawPower(){
+        if((this.wavesMagic === 50 && this.powerCounter < 1) || (this.wavesCannon === 50 && this.powerCounter < 1) || (this.wavesLaser === 50 && this.powerCounter < 1)) {
+            this.powerCounter ++;
+        }
+        if(this.powerTimer <= 0) this.powerTimer = 0; 
+        if(this.powerTimer > 0){
+            this.powerTimer --;
+            this.powerImg.src = "docs/assets/images/auraBlast.png"
+            ctx.drawImage(this.powerImg, 0, 0, 400, 400);
+        }
+
+        this.powerElement.innerHTML = `Aura Powers: ${this.powerCounter}`
+    }
+
+
+
+
     saveHiScores(){
         window.localStorage.setItem("hiscore-1", this.firstHiScore.innerHTML);
         window.localStorage.setItem("hiscore-2", this.secondHiScore.innerHTML);
@@ -223,6 +244,7 @@ class Game {
         this.styleCanvas();
         this.drawPlayer();
         this.sendWaves();
+        this.drawPower();
         this.updateScore();
         console.log(this.enemies)
         this.lostLevel();
