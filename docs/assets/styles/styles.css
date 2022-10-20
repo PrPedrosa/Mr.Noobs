@@ -107,14 +107,14 @@ h1 {
     text-align: center;
 }
 
-#aura-spell {
+/* #aura-spell {
     font-size: 2rem;
     font-weight: bold;
     color:#004d00;
     position: absolute;
     top: 55%;
     left: 10%
-}
+} */
 
 p {
     color: black;

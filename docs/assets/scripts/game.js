@@ -235,9 +235,9 @@ class Game {
 
 
     saveHiScores(){
-        window.localStorage.setItem("hiscore-1", this.firstHiScore.innerHTML);
-        window.localStorage.setItem("hiscore-2", this.secondHiScore.innerHTML);
-        window.localStorage.setItem("hiscore-3", this.thirdHiScore.innerHTML);
+        window.localStorage.setItem("hiscore-1", this.firstHiScore)//.innerHTML);
+        window.localStorage.setItem("hiscore-2", this.secondHiScore)//.innerHTML);
+        window.localStorage.setItem("hiscore-3", this.thirdHiScore)//.innerHTML);
     } 
 
     styleCanvas(){
