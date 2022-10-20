@@ -213,9 +213,9 @@ class Game {
                 else if(+(this.thirdHiScore.lastElementChild.lastElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
                     this.thirdHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`;
                 }  
-                window.localStorage.setItem("hiscore-1", this.firstHiScore.innerHTML);
+                /* window.localStorage.setItem("hiscore-1", this.firstHiScore.innerHTML);
                 window.localStorage.setItem("hiscore-2", this.secondHiScore.innerHTML);
-                window.localStorage.setItem("hiscore-3", this.thirdHiScore.innerHTML);
+                window.localStorage.setItem("hiscore-3", this.thirdHiScore.innerHTML); */
             }  
         }
     }
