@@ -68,9 +68,9 @@ let welcomeText = document.getElementById("welcome-text")
 
 
 window.addEventListener("load", () =>{
-    document.getElementById("hi-score-1")/* .innerHTML */ = window.localStorage.getItem("hiscore-1")
-    document.getElementById("hi-score-2")/* .innerHTML */ = window.localStorage.getItem("hiscore-2")
-    document.getElementById("hi-score-3")/* .innerHTML */ = window.localStorage.getItem("hiscore-3")
+    document.getElementById("hi-score-1").innerHTML = window.localStorage.getItem("hiscore-1")
+    document.getElementById("hi-score-2").innerHTML = window.localStorage.getItem("hiscore-2")
+    document.getElementById("hi-score-3").innerHTML = window.localStorage.getItem("hiscore-3")
 })
 
 menuStickman.onmouseover = () => {

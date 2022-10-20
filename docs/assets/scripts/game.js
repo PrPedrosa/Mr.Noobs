@@ -202,17 +202,20 @@ class Game {
                 if(+(this.firstHiScore.lastElementChild.lastElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
                     this.thirdHiScore.innerHTML = this.secondHiScore.innerHTML;
                     this.secondHiScore.innerHTML = this.firstHiScore.innerHTML;
-                    this.firstHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`
+                    this.firstHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`;
                 }
-
+                
                 else if(+(this.secondHiScore.lastElementChild.lastElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
                     this.thirdHiScore.innerHTML = this.secondHiScore.innerHTML;
-                    this.secondHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`
+                    this.secondHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`;
                 }
                 
                 else if(+(this.thirdHiScore.lastElementChild.lastElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
-                    this.thirdHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`
+                    this.thirdHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`;
                 }  
+                window.localStorage.setItem("hiscore-1", this.firstHiScore.innerHTML);
+                window.localStorage.setItem("hiscore-2", this.secondHiScore.innerHTML);
+                window.localStorage.setItem("hiscore-3", this.thirdHiScore.innerHTML);
             }  
         }
     }
@@ -234,11 +237,11 @@ class Game {
 
 
 
-    saveHiScores(){
-        window.localStorage.setItem("hiscore-1", this.firstHiScore)//.innerHTML);
-        window.localStorage.setItem("hiscore-2", this.secondHiScore)//.innerHTML);
-        window.localStorage.setItem("hiscore-3", this.thirdHiScore)//.innerHTML);
-    } 
+    /* saveHiScores(){
+        window.localStorage.setItem("hiscore-1", this.firstHiScore.innerHTML);
+        window.localStorage.setItem("hiscore-2", this.secondHiScore.innerHTML);
+        window.localStorage.setItem("hiscore-3", this.thirdHiScore.innerHTML);
+    }  */
 
     styleCanvas(){
         if(this.timer > 700) this.canvasStyle.style.boxShadow = "0 0 100px 0 red"
@@ -258,7 +261,7 @@ class Game {
         this.goLevel2();
         this.goLevel3();
         this.checkGameOver();
-        this.saveHiScores();   
+        //this.saveHiScores();   
         this.animationFrameId = requestAnimationFrame(this.update);
         if(this.gameOver) {
             this.gameOverImg.style.display = "block";
