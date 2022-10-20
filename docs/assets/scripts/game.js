@@ -28,10 +28,6 @@ class Game {
         this.multiplyScore = document.getElementById("display-final-score");
         this.scoreImg = document.getElementById("score-img");
         this.scoreTable = document.getElementById("final-score-div");
-        /* this.hiScoresList = document.getElementById("hi-scores-list"); //work on this
-        this.hiScoresSpan = document.getElementsByClassName("hi-scores-span");
-        this.hiScoresListOfWaves = document.getElementsByClassName("hi-scores-list-element"); */
-        //this.hiScoresArray = [document.getElementById("hi-score-1"), document.getElementById("hi-score-2"), document.getElementById("hi-score-3")]
         this.firstHiScore = document.getElementById("hi-score-1");
         this.secondHiScore = document.getElementById("hi-score-2");
         this.thirdHiScore = document.getElementById("hi-score-3");
@@ -194,72 +190,26 @@ class Game {
             if(this.endTimer === 50){
 
                 if(+(this.firstHiScore.lastElementChild.lastElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
+                    this.thirdHiScore.innerHTML = this.secondHiScore.innerHTML;
+                    this.secondHiScore.innerHTML = this.firstHiScore.innerHTML;
                     this.firstHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`
                 }
                 else if(+(this.secondHiScore.lastElementChild.lastElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
+                    this.thirdHiScore.innerHTML = this.secondHiScore.innerHTML;
                     this.secondHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`
                 }
                 else if(+(this.thirdHiScore.lastElementChild.lastElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
                     this.thirdHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`
-                }
-
-
-                /* for(let s = 0; s < this.hiScoresArray.length; s++){
-                    if(+(this.hiScoresArray[s].firstElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
-                        this.hiScoresArray[s].innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}   =`
-                    }
-                } */
-
-
-
-                /* for(let i = 0; i < this.hiScoresSpan.length; i++){
-                    if(+(this.multiplyScore.innerHTML) > +(this.hiScoresSpan[i].innerHTML)){
-                        this.hiScoresSpan[i].innerHTML = this.multiplyScore.innerHTML;
-                        break;//Math.min with indexOF???
-                    }
-                } */
-                /* let currentHiScoresArr = [];
-                let finalHiScoresArr = [];
-                for(let k = 0; k < this.hiScoresSpan.length; k++) {
-                    currentHiScoresArr.push(+(this.hiScoresSpan[k].innerHTML))
-                }
-                if(+(this.multiplyScore.innerHTML) > Math.min(...currentHiScoresArr)){
-                    this.hiScoresSpan[currentHiScoresArr.indexOf(Math.min(...currentHiScoresArr))].innerHTML = this.multiplyScore.innerHTML
-                }
-
-                for(let p = 0; p < this.hiScoresSpan.length; p++){
-                    finalHiScoresArr.push(+(this.hiScoresSpan[p].innerHTML))
-                }
-                //now sort and equal arrs again with loop //sorting twice for waves
-                currentHiScoresArr.sort((a, b) => {return b - a});
-                finalHiScoresArr.sort((a, b) => {return b - a});
-                finalHiScoresArr.forEach((score, index) =>{
-                    this.hiScoresSpan[index].innerHTML = score;
-                    if(+(this.multiplyScore.innerHTML) === score){
-                        this.hiScoresListOfWaves[index].innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}   =`
-                    }
-                }) */
-                //get waves on highscores
-                /* if(+(this.multiplyScore.innerHTML) > Math.min(...currentHiScoresArr)){
-                    this.hiScoresListOfWaves[currentHiScoresArr.indexOf(Math.min(...currentHiScoresArr))].innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}   =` */
-
-
-
-                /* for(let q = 0; q < currentHiScoresArr.length; q++){
-                    if(finalHiScoresArr[q] > currentHiScoresArr[q] && this.wavesMagic*this.wavesCannon*this.wavesLaser === finalHiScoresArr[q]){
-                        this.hiScoresListOfWaves[q].innerHTML = `${this.wavesMagic}   x   ${this.wavesCannon}   x   ${this.wavesLaser}`
-                    }//just do Math min here and join all wiho */
-                
-
-
-
-
-
-                
-                
+                }  
             }  
         }
     }
+
+    saveHiScores(){
+        window.localStorage.setItem("hiscore-1", this.firstHiScore.innerHTML);
+        window.localStorage.setItem("hiscore-2", this.secondHiScore.innerHTML);
+        window.localStorage.setItem("hiscore-3", this.thirdHiScore.innerHTML);
+    } 
 
     styleCanvas(){
         if(this.timer > 700) this.canvasStyle.style.boxShadow = "0 0 100px 0 red"
@@ -274,13 +224,14 @@ class Game {
         this.drawPlayer();
         this.sendWaves();
         this.updateScore();
+        console.log(this.enemies)
         this.lostLevel();
         this.goLevel2();
         this.goLevel3();
-        this.checkGameOver();   
+        this.checkGameOver();
+        this.saveHiScores();   
         this.animationFrameId = requestAnimationFrame(this.update);
         if(this.gameOver) {
-            //this.enemies.splice(0, this.enemies.length); can do this for the power up maybe
             this.gameOverImg.style.display = "block";
             cancelAnimationFrame(this.animationFrameId);
         }

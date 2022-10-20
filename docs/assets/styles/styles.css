@@ -253,7 +253,7 @@ p {
     border-radius: 10px;
     font-size: 2rem;
     font-weight: bold;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-left: 60px;
 }
 
@@ -303,6 +303,10 @@ p {
     /* color:red */
     /* color:orange */
 
+}
+
+.x-hiscore {
+    font-size: 2rem;
 }
 
 .final-score-hiscore {

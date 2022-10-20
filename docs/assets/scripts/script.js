@@ -1,9 +1,8 @@
 /**@type {HTMLCanvasElement} */
-//2 game modes - 100waves(with difficulties)(bonus)
-//leaderboard (bonus)
+
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-//canvas is 400 by 400
+//canvas is 500 by 500
 
 let matrix = [
     [1, 1, 1, 1, 1, 1, 1, 1],
@@ -60,6 +59,14 @@ let instructionsDiv = document.getElementById("instructions-div");
 let hiScoresBtn = document.getElementById("hi-scores-btn");
 let hiScoresScreen = document.getElementById("hi-scores-screen");
 let goBackHiScoresBtn = document.getElementById("go-back-hiscores");
+let auraBlast = new Image();
+auraBlast.src = "docs/assets/images/auraBlast.jpg"
+
+window.addEventListener("load", () =>{
+    document.getElementById("hi-score-1").innerHTML = window.localStorage.getItem("hiscore-1")
+    document.getElementById("hi-score-2").innerHTML = window.localStorage.getItem("hiscore-2")
+    document.getElementById("hi-score-3").innerHTML = window.localStorage.getItem("hiscore-3")
+})
 
 
 instructionsBtn.onmouseover = () => {
@@ -101,7 +108,14 @@ startBtn.addEventListener("click", () => {
             case 'ArrowRight':
                 if(noob.x < 305 && (game.timer === 0 || (game.timer > 400 && game.timer < 505) || (game.timer > 900 && game.timer < 1020)))  noob.moveRight();
                 break;
+
+            /* case 'Space':
+                game.enemies.splice(0);
+                game.numberOfEnemies = 2;
+                ctx.drawImage(auraBlast, 0, 0, 400, 400)
+                break; */
             }
+
         })
     game.startGame();
 
