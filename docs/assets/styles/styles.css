@@ -107,15 +107,6 @@ h1 {
     text-align: center;
 }
 
-/* #aura-spell {
-    font-size: 2rem;
-    font-weight: bold;
-    color:#004d00;
-    position: absolute;
-    top: 55%;
-    left: 10%
-} */
-
 p {
     color: black;
     font-size: 2.5rem;
@@ -258,14 +249,11 @@ p {
     width: 25%;
 }
 
-#hi-scores-div {
-    margin-top: 100px;
-
-}
-
 #hi-scores-list {
+    position: absolute;
+    top: 38%;
+    left: 28%;
     padding: 0;
-    margin-top: 100px;
 }
 
 #go-back-hiscores {
@@ -277,16 +265,17 @@ p {
     border-radius: 10px;
     font-size: 2rem;
     font-weight: bold;
-    margin-top: 10px;
-    margin-left: 60px;
+    position: absolute;
+    bottom: 5%;
+    left: 40%;
 }
 
 #hi-score-texts-div {
     display: flex;
     align-items: center;
     position: absolute;
-    top: 34%;
-    left: 27%;
+    top: 28%;
+    left: 30%;
 
 }
 
@@ -327,7 +316,9 @@ p {
 }
 
 #hi-scores-img {
-    margin-left: 30px;
+    position: absolute;
+    top: 10%;
+    left: 40%;
 }
 
 #cannon-hiscore-img {
@@ -336,7 +327,7 @@ p {
 
 
 #laser-hiscore-img {
-    margin-left: 30px;
+    margin-left: 40px;
 }
 
 #score-hiscore-img {

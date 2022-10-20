@@ -33,11 +33,6 @@ class Game {
         this.thirdHiScore = document.getElementById("hi-score-3");
         this.goBackArrow = document.getElementById("go-back-arrow");
         this.canvasStyle = document.getElementById("canvas");
-        /* this.powerImg = new Image();
-        this.powerTimer = 0;
-        this.powerCounter = 0;
-        this.powerElement = document.getElementById("aura-spell"); */
-
     }
 
     drawWarning(){
@@ -81,7 +76,7 @@ class Game {
             }
         } 
 
-        if (this.level === 1 && this.wavesMagic % 10 === 0 && this.numberOfEnemies < 10) this.numberOfEnemies++;
+        if (this.level === 1 && this.wavesMagic % 8 === 0 && this.numberOfEnemies < 10) this.numberOfEnemies++;
         if (this.level === 2 && this.wavesCannon % 7 === 0 && this.numberOfEnemies < 10) this.numberOfEnemies++;
         if (this.level === 3 && this.wavesLaser % 5 === 0 && this.numberOfEnemies < 6) this.numberOfEnemies++;
     }
@@ -89,7 +84,11 @@ class Game {
         
     
     sendWaves(){
-        if(this.frames % 140 === 0 && this.timer === 0) {//level 1
+        if(this.frames % 100 === 0 && this.timer === 0 && this.wavesMagic > 39){//faster level 1
+            this.createEnemies();
+            this.wavesMagic++
+        }
+        else if(this.frames % 140 === 0 && this.timer === 0 && this.wavesMagic <= 40) {//level 1
             this.createEnemies();
             this.wavesMagic ++;
         }
@@ -212,42 +211,15 @@ class Game {
                 
                 else if(+(this.thirdHiScore.lastElementChild.lastElementChild.innerHTML) < this.wavesMagic * this.wavesCannon * this.wavesLaser){
                     this.thirdHiScore.innerHTML = `<div class="list-item-div"><span class="magic-hiscore">${this.wavesMagic}</span><span class="x-hiscore">x</span><span class="cannon-hiscore">${this.wavesCannon}</span><span class="x-hiscore">x</span><span class="laser-hiscore">${this.wavesLaser}</span><span class="x-hiscore">=</span><span class="final-score-hiscore">${this.wavesMagic * this.wavesCannon * this.wavesLaser}</span></div>`;
-                }  
-                /* window.localStorage.setItem("hiscore-1", this.firstHiScore.innerHTML);
-                window.localStorage.setItem("hiscore-2", this.secondHiScore.innerHTML);
-                window.localStorage.setItem("hiscore-3", this.thirdHiScore.innerHTML); */
+                }                
             }  
         }
     }
-
-    /* drawPower(){
-        if((this.wavesMagic === 50 && this.powerCounter < 1) || (this.wavesCannon === 50 && this.powerCounter < 1) || (this.wavesLaser === 50 && this.powerCounter < 1)) {
-            this.powerCounter ++;
-        }
-        if(this.powerTimer <= 0) this.powerTimer = 0; 
-        if(this.powerTimer > 0){
-            this.powerTimer --;
-            this.powerImg.src = "docs/assets/images/auraBlast.png"
-            ctx.drawImage(this.powerImg, 0, 0, 400, 400);
-        }
-
-        this.powerElement.innerHTML = `Aura Powers: ${this.powerCounter}`
-    } */
-
-
-
-
-    /* saveHiScores(){
-        window.localStorage.setItem("hiscore-1", this.firstHiScore.innerHTML);
-        window.localStorage.setItem("hiscore-2", this.secondHiScore.innerHTML);
-        window.localStorage.setItem("hiscore-3", this.thirdHiScore.innerHTML);
-    }  */
 
     styleCanvas(){
         if(this.timer > 700) this.canvasStyle.style.boxShadow = "0 0 100px 0 red"
         else if(this.timer > 150) this.canvasStyle.style.boxShadow = "0 0 100px 20px black"
     }
-
 
     update = () => {
         this.frames++;
@@ -255,13 +227,11 @@ class Game {
         this.styleCanvas();
         this.drawPlayer();
         this.sendWaves();
-        //this.drawPower();
         this.updateScore();
         this.lostLevel();
         this.goLevel2();
         this.goLevel3();
-        this.checkGameOver();
-        //this.saveHiScores();   
+        this.checkGameOver();  
         this.animationFrameId = requestAnimationFrame(this.update);
         if(this.gameOver) {
             this.gameOverImg.style.display = "block";

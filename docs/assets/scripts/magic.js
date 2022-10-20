@@ -47,22 +47,22 @@ class EnemyMagic {
         //draw enemy
         if(this.identifyPos === "startsLeft"){
             this.enemyImg.src = this.enemyImgSrcRight[Math.floor(this.frames % 3)];
-            this.position[0] += 2.5
+            this.position[0] += 3
             ctx.drawImage(this.enemyImg, this.position[0], this.position[1], this.w, this.h);
         }
         if(this.identifyPos === "startsRight"){
             this.enemyImg.src = this.enemyImgSrcLeft[Math.floor(this.frames % 3)];
-            this.position[0] -= 2.5
+            this.position[0] -= 3
             ctx.drawImage(this.enemyImg, this.position[0], this.position[1], this.w, this.h);
         }
         if(this.identifyPos === "startsTop"){
             this.enemyImg.src = this.enemyImgSrcDown[Math.floor(this.frames % 3)];
-            this.position[1] += 2.5
+            this.position[1] += 3
             ctx.drawImage(this.enemyImg, this.position[0], this.position[1], this.w, this.h);
         }
         if(this.identifyPos === "startsBottom"){
             this.enemyImg.src = this.enemyImgSrcUp[Math.floor(this.frames % 3)];
-            this.position[1] -= 2.5
+            this.position[1] -= 3
             ctx.drawImage(this.enemyImg, this.position[0], this.position[1], this.w, this.h);
         }
 
