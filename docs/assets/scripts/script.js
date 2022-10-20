@@ -59,6 +59,9 @@ let instructionsDiv = document.getElementById("instructions-div");
 let hiScoresBtn = document.getElementById("hi-scores-btn");
 let hiScoresScreen = document.getElementById("hi-scores-screen");
 let goBackHiScoresBtn = document.getElementById("go-back-hiscores");
+let menuStickman = document.getElementById("stickman-on-menu");
+let welcomeStickman = document.getElementById("welcome-stickman");
+let welcomeText = document.getElementById("welcome-text")
 //let menuAudio = new Audio("docs/assets/music/game-theme.mp3");
 
 //menuAudio.play();
@@ -70,6 +73,17 @@ window.addEventListener("load", () =>{
     document.getElementById("hi-score-3").innerHTML = window.localStorage.getItem("hiscore-3")
 })
 
+menuStickman.onmouseover = () => {
+    menuStickman.style.display = "none";
+    welcomeStickman.style.display = "block";
+    welcomeText.style.display = "block";
+}
+
+menuStickman.onmouseout = () => {
+    menuStickman.style.display = "block";
+    welcomeStickman.style.display = "none";
+    welcomeText.style.display = "none";
+}
 
 instructionsBtn.onmouseover = () => {
     instructionsDiv.style.display = "flex";
@@ -111,14 +125,14 @@ startBtn.addEventListener("click", () => {
                 if(noob.x < 305 && (game.timer === 0 || (game.timer > 400 && game.timer < 505) || (game.timer > 900 && game.timer < 1020)))  noob.moveRight();
                 break;
 
-            case 'Space':
+            /* case 'Space':
                 if(game.powerCounter > 0){
                 game.powerTimer = 30;
                 game.enemies.splice(0);
                 game.numberOfEnemies = 2;
                 game.powerCounter -=1
                 }
-                break;
+                break; */
             }
 
         })
@@ -128,6 +142,7 @@ startBtn.addEventListener("click", () => {
         game.gameOver = true;
         menuScreen.style.display = "flex";
         canvasScreen.style.display = "none";
+
     })
 })
 

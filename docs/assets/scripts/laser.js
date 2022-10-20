@@ -39,22 +39,22 @@ class EnemyLaser{
 
         if(this.identifyPos === "startsLeft"){
             this.laserImg.src = this.laserImgSrc[0]
-            this.position[0] += 8
+            this.position[0] += 15
             ctx.drawImage(this.laserImg, this.position[0], this.position[1], 400, 35);
         }
         if(this.identifyPos === "startsRight"){
             this.laserImg.src = this.laserImgSrc[0]
-            this.position[0] -= 8
+            this.position[0] -= 15
             ctx.drawImage(this.laserImg, this.position[0], this.position[1], 400, 35);
         }
         if(this.identifyPos === "startsTop"){
             this.laserImg.src = this.laserImgSrc[1]
-            this.position[1] += 8
+            this.position[1] += 15
             ctx.drawImage(this.laserImg, this.position[0], this.position[1], 35, 400);
         }
         if(this.identifyPos === "startsBottom"){
             this.laserImg.src = this.laserImgSrc[1]
-            this.position[1] -= 8
+            this.position[1] -= 15
             ctx.drawImage(this.laserImg, this.position[0], this.position[1], 35, 400);
         }
     }
@@ -64,17 +64,17 @@ class EnemyLaser{
         let randSecondPos = Math.floor(Math.random()*6);
         let secondPos = [55, 105, 155, 205, 255, 305];
         
-        if(randFirstPos === 0) return [-600, secondPos[randSecondPos]];
-        else if (randFirstPos === 1) return [590, secondPos[randSecondPos]]; 
-        else if (randFirstPos === 2) return [secondPos[randSecondPos], -600]; 
-        else if (randFirstPos === 3) return [secondPos[randSecondPos], 590]; 
+        if(randFirstPos === 0) return [-800, secondPos[randSecondPos]];
+        else if (randFirstPos === 1) return [790, secondPos[randSecondPos]]; 
+        else if (randFirstPos === 2) return [secondPos[randSecondPos], -800]; 
+        else if (randFirstPos === 3) return [secondPos[randSecondPos], 790]; 
     }
     
     identifyPosition(){
-        if(this.position[0] === -600) return "startsLeft";
-        else if(this.position[0] === 590) return "startsRight";
-        else if(this.position[1] === -600) return "startsTop";
-        else if(this.position[1] === 590) return "startsBottom";
+        if(this.position[0] === -800) return "startsLeft";
+        else if(this.position[0] === 790) return "startsRight";
+        else if(this.position[1] === -800) return "startsTop";
+        else if(this.position[1] === 790) return "startsBottom";
     }
 
     topPos(){

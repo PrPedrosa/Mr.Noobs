@@ -37,19 +37,19 @@ class EnemyCannonball{
         this.cannonImg.src = "docs/assets/images/cannonball.png";
 
         if(this.identifyPos === "startsLeft"){
-            this.position[0] += 5
+            this.position[0] += 7
             ctx.drawImage(this.cannonImg, this.position[0], this.position[1], this.w, this.h);
         }
         if(this.identifyPos === "startsRight"){
-            this.position[0] -= 5
+            this.position[0] -= 7
             ctx.drawImage(this.cannonImg, this.position[0], this.position[1], this.w, this.h);
         }
         if(this.identifyPos === "startsTop"){
-            this.position[1] += 5
+            this.position[1] += 7
             ctx.drawImage(this.cannonImg, this.position[0], this.position[1], this.w, this.h);
         }
         if(this.identifyPos === "startsBottom"){
-            this.position[1] -= 5
+            this.position[1] -= 7
             ctx.drawImage(this.cannonImg, this.position[0], this.position[1], this.w, this.h);
         }
     }
