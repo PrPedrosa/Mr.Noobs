@@ -62,16 +62,7 @@ let goBackHiScoresBtn = document.getElementById("go-back-hiscores");
 let menuStickman = document.getElementById("stickman-on-menu");
 let welcomeStickman = document.getElementById("welcome-stickman");
 let welcomeText = document.getElementById("welcome-text")
-//let menuAudio = new Audio("docs/assets/music/game-theme.mp3");
 
-//menuAudio.play();
-
-
-/* window.addEventListener("load", () =>{
-    document.getElementById("hi-score-1").innerHTML = window.localStorage.getItem("hiscore-1")
-    document.getElementById("hi-score-2").innerHTML = window.localStorage.getItem("hiscore-2")
-    document.getElementById("hi-score-3").innerHTML = window.localStorage.getItem("hiscore-3")
-}) */
 
 menuStickman.onmouseover = () => {
     menuStickman.style.display = "none";
@@ -124,15 +115,6 @@ startBtn.addEventListener("click", () => {
             case 'ArrowRight':
                 if(noob.x < 305 && (game.timer === 0 || (game.timer > 400 && game.timer < 505) || (game.timer > 900 && game.timer < 1020)))  noob.moveRight();
                 break;
-
-            /* case 'Space':
-                if(game.powerCounter > 0){
-                game.powerTimer = 30;
-                game.enemies.splice(0);
-                game.numberOfEnemies = 2;
-                game.powerCounter -=1
-                }
-                break; */
             }
 
         })

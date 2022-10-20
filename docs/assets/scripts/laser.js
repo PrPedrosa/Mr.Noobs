@@ -91,6 +91,4 @@ class EnemyLaser{
         if(this.identifyPos === "startsLeft" || this.identifyPos === "startsRight") return this.position[0] + 400
         else return this.position[0] + this.w;   
     }
-
-
 }

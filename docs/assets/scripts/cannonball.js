@@ -84,6 +84,4 @@ class EnemyCannonball{
     rightPos(){
         return this.position[0] + this.w;
     }
-
-
 }

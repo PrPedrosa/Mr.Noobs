@@ -9,18 +9,18 @@ class Game {
         this.wavesCannon = 0;
         this.wavesLaser = 0;
         this.numberOfEnemies = 1;
-        this.score = document.getElementById("score");
-        this.gameOverImg = document.getElementById("game-over-img");
         this.level = 1;
+        this.timer = 0;
+        this.endTimer = 0;
+        this.touched = false;
         this.warningImg = new Image();
         this.warningImgSrc = ["docs/assets/images/arrowRight.png", "docs/assets/images/arrowLeft.png", "docs/assets/images/arrowUp.png", "docs/assets/images/arrowDown.png"];
-        this.touched = false;
-        this.timer = 0;
         this.deadImg = new Image();
         this.deadImg.src = "docs/assets/images/stickmanDead.png";
         this.lostImg = new Image();
         this.lostImg.src = "docs/assets/images/lostStickman.png";
-        this.endTimer = 0;
+        this.score = document.getElementById("score");
+        this.gameOverImg = document.getElementById("game-over-img");
         this.levelImg = document.getElementById("level-image");
         this.magicScore = document.getElementById("magic-score");
         this.cannonScore = document.getElementById("cannon-score");
@@ -252,6 +252,5 @@ class Game {
         this.goBackArrow.style.width = "65px";
         this.goBackArrow.style.height = "65px";
         this.update();
-    }
-    
+    }   
 }
