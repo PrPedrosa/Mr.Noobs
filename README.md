@@ -8,4 +8,4 @@ Based on the classic mobile game Mr.Oops, the game consists in 3 levels, survive
 
 Developed for the Ironhack WebDev bootcamp using Javascript and HTML5 Canvas, this game is the result of a week long work.
 
-<a href="https://prpedrosa.github.io/Project_1_game/">Try it!</a>
+<a href="https://prpedrosa.github.io/Project_1_game/" target="_blank">Try it!</a>
