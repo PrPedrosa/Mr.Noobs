@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Mr.Noobs</title>
+</head>
+<body>
+    <div id="parent">
+        
+        <div id="canvas-div">
+            <img src="./assets/images/goBackArrow.png" alt="Go back arrow" id="go-back-arrow">
+
+            <img src="./assets/images/magicText.png" alt="Level name" id="level-image">
+            <h1 id="score"></h1>
+
+            <img src="./assets/images/scoreText.png" alt="score text" id="score-img">
+            <div id="final-score-div">
+                <div class="level-img-div">
+                    <img src="./assets/images/magicText.png" alt="" class="display-score-img">
+                    <img src="./assets/images/cannonText.png" alt="" class="display-score-img">
+                    <img src="./assets/images/laserText.png" alt="" class="display-score-img">
+                </div>
+        
+                <div class="level-img-div">
+                    <p class="score-p" id="magic-score"></p>
+                    <p class="multiply">x</p>
+                    <p class="score-p" id="cannon-score"></p>
+                    <p class="multiply">x</p>
+                    <p class="score-p" id="laser-score"></p>
+                </div>
+                <p class="multiply">=</p>
+                <p id="display-final-score"></p>
+                <p class="multiply">points!</p>
+            </div>
+
+            <canvas id="canvas" width="400px" height="400px"></canvas>
+
+            <img src="./assets/images/gameOver.png" alt="Game over" id="game-over-img">
+        </div>
+
+        <div id="menu-screen">
+            <img src="./assets/images/game_logo2.png" alt="Game name: Mr.Noobs" id="logo">
+            <img src="./assets/images/stickmanLogo.png" alt="stickman image" id="stickman-on-menu">
+            <img src="./assets/images/welcomeStickman.png" alt="happy stickman" id="welcome-stickman">
+
+            <div id="welcome-text">Welcome noob!</div>
+		
+
+            <div id="buttons-div">
+                <button id="start-btn">Start</button>
+                <button id="hi-scores-btn">HiScores</button>
+                <button id="instructions-btn">Instructions</button>
+            </div>
+
+            <div id="instructions-div">
+                <img src="./assets/images/instructions.png" alt="step 1:dodge, step 2: repeat step 1" class="how-to-play" id="instructions-img">
+                <img src="./assets/images/moveWith.png" alt="move with:" class="how-to-play" id="move-with-img">
+                <img src="./assets/images/keys.png" alt="arrow keys" class="how-to-play" id="keys-img">
+            </div>
+        </div>
+
+        <div id="hi-scores-screen">
+            <img src="./assets/images/game_logo2.png" alt="Game name: Mr.Noobs" id="logo-on-hi-scores">
+
+            <div id="hi-scores-div">
+                <img src="./assets/images/hiscoresText.png" alt="HiScores" id="hi-scores-img">
+                <div id="hi-score-texts-div">
+                    <img src="./assets/images/magicText.png" alt="" id="magic-hiscore-img">
+                    <img src="./assets/images/cannonText.png" alt="" id="cannon-hiscore-img">
+                    <img src="./assets/images/laserText.png" alt="" id="laser-hiscore-img">
+                    <img src="./assets/images/scoreText.png" alt="" id="score-hiscore-img">
+                </div>
+                <ol id="hi-scores-list">
+                    <li class="hi-scores-list-element" id="hi-score-1">
+                        <span><span>0</span></span>
+                    </li>
+                    
+                    <li class="hi-scores-list-element" id="hi-score-2">
+                        <span><span>0</span></span>
+                    </li>
+                    
+                    <li class="hi-scores-list-element" id="hi-score-3">
+                        <span><span>0</span></span>
+                    </li>
+                    
+                </ol>
+                <button id="go-back-hiscores">Go get better, noob</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="./assets/scripts/player.js"></script>
+    <script src="./assets/scripts/magic.js"></script>
+    <script src="./assets/scripts/cannonball.js"></script>
+    <script src="./assets/scripts/laser.js"></script>
+    <script src="./assets/scripts/game.js"></script>
+    <script src="./assets/scripts/script.js"></script>
+</body>
+</html>
